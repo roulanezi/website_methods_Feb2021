@@ -1,0 +1,21 @@
+---
+title: Measures of dispersion
+weight: 14
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>The <strong>range</strong> of a variable is the simplest and easiest measure of dispersion we can calculate, but at the same time is the less reliable one, this is because it depends only upon two values- the two extremes- that quite often are also outliers and are far away from the centre of the distribution.</p>
+<p>The <strong>variance</strong> is a measure that takes into consideration how far is each value from the mean. To calculate the variance we have to take into account that negative values might cancel out the positive ones, the mathematical trick to overcome this issue is to square the deviations from the mean. For example if the deviation from the mean is equal to -3 the squared deviation is equal to 9. The downside of this approach is that the <em>variance</em> is reporting the squared deviation from the mean, in other words the outcome is not in the same units as the observed variable, and thus the interpretation is sometimes difficult. But, the variance has some very important uses!</p>
+<p>To calculate the variance in RStudio we use the <code>var()</code> function.</p>
+<pre class="r"><code>table(EVS_UK$v142)</code></pre>
+<pre><code>## 
+##    1    2    3    4    5    6    7    8    9   10 
+##   24    8   11   15   90   66   84  212  223 1031</code></pre>
+<pre class="r"><code>var(EVS_UK$v142,na.rm=TRUE) # na.rm deletes all cases with missing values before calculating the variance</code></pre>
+<pre><code>## [1] 3.552088</code></pre>
+<p>To overcome this issue we calculate a statistical quantity called <em>standard deviation</em> . Think of the standard deviation as the average amount the values of a variable deviate from the mean. The greater the dispersion, the bigger the deviation and eventually the standard deviation (sd).</p>
+<p>In R we may calculate the standard deviation by using the <code>sd()</code> function.</p>
+<pre class="r"><code>sd(EVS_UK$v142, na.rm=TRUE) </code></pre>
+<pre><code>## [1] 1.884698</code></pre>

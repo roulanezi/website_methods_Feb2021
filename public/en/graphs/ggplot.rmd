@@ -1,0 +1,74 @@
+---
+title: The ggplot package
+weight: 21
+---
+#### Learning Objectives
+
+By the end of this section you will:
+
+* Learn the basic concepts associated the grammar of graphics such as aesthetic mapping.
+* Be introduced to some initial steps to preparing your data for plotting graphs.
+
+
+## The ggplot package
+
+The most common data visualisation package in RStudio is ggplot. We may install ggplot by using the `install.packages()` function. We write `install.packages("ggplot2")` and we call the package by using the `library()` function.
+
+```{r libraryggplot}
+library(ggplot2)
+```
+
+First of all, as most packages in RStudio the ggplot team created a cheatsheet. You may find it here
+[ggplot Cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf)
+
+If we call the `ggplot()` function then we will create an empty canvas. 
+We start by loading our dataset entitled **EVS_UK.RData**
+
+```{r emptyplot}
+load("EVS_UK.RData")
+ggplot(EVS_UK) # this created an empty plot
+```
+
+the next step is to specify the variables we would like to use, as you know we cannot plot the whole dataset! 
+
+To specify which variables we would like to plot we have to include in the function the so called **aes()** section that specifies the **aesthetic mappings**, in other words, this section specifies how to map our variables. 
+
+
+Let's start by creating a bar to see how the **aes** section works - you already know how to do that but this time we will give a name to our plot.
+
+
+In our analysis we will use two socio-demographics variables gender and education. Gender is a dichotomous variable describing gender. Education is an ordinal variable with three levels - low, medium, and high.
+
+In the dataset the code of the variable describing gender is `EVS_UK$v225`, and the name of the variable describing education is `EVS_UK$v243_r_weight`. 
+
+Before we proceed, we will give meaningful names to our variable swhile at the same time we will make sure that our new variables are categorical (_factor_) variable for gender- as it should be. We can easily do that by using the assignment operator $<-$ and the `as.factor` function.  
+
+
+```{r variable name}
+EVS_UK$gender<- factor(EVS_UK$v225,
+               levels = c(1,2),
+               labels = c("Men", "Women"))
+
+table(EVS_UK$gender)
+```
+**Note**: at the left side of the equation I specified the dataset at which my new variable belongs to - that is `EVS_UK`. 
+
+We will do the same for the variable describing education and is currently named `v243_r_weight`. 
+
+Recall, Lecture 2 (Descriptive Statistics) during the lab session we used the same function to rename `v243_r_weight`to `education`.
+
+In this example education is an ordinal variable with three levels- low, medium, high. 
+
+```{r}
+EVS_UK$education <- ordered(EVS_UK$v243_r_weight, #here you specify that this is ordered variable
+levels = c(1,2,3), # here you specify the values of the variable
+labels = c("Low", "Medium", "High"))  #here you specify the names of the values
+```
+
+# Recap
+
+* ggplot2 refers to the grammar of graphic and is the main package in the 'tidyverse' for plotting data.
+* Aesthetic mapping or `aes()` is the function used tell ggplot2 which variables to use in our plot.
+* Before we plot our data we need to ensure that our labels are meaningful.
+
+

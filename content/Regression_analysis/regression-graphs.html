@@ -1,0 +1,19 @@
+---
+title: Visualising the relationship
+weight: 24
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>Let’s plot the elationship between the two variables, dependent and independent, but this time we will include the regression line.</p>
+<pre class="r"><code>plot.2&lt;-ggplot(GDP_Dem, aes(x=GDPPC1984, y=Dem_Gov1984)) +geom_point(size=3) +
+stat_smooth(method = &quot;lm&quot;, col = &quot;red&quot;)+
+theme_classic()+
+scale_x_continuous(breaks = seq(0, 75000, by = 5000))+
+scale_y_continuous(breaks = seq(0, 200, by = 10))+
+labs(x=&quot;Democratic Governance&quot;, y=&quot;GDP Per Capita&quot;)
+plot.2</code></pre>
+<p><img src="/Regression_analysis/regression-graphs_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>The graph replicates the table, when our independent variable is equal to zero, then the starting point of the line (the Y axis) is predicted to be approximately 20, the same as in our table (19.24).</p>
+<p>By looking at the regression line we should also observe that the position of the line matches the coefficients we estimated, and reported in our table. The coeeficient for the variable describing GDP per Capita <code>GDPPC1984</code> is 0.001519. The line seems to reflect this. First of all, the direction of the line imply that there is a positive relationship between the dependent and the independent variable. Indeed, the positive sign of the coefficient represents this positive relationship between the two variables. In other words, higher levels of GDP per Capita are associated with higher levels of Democracy. For each additional unit of GDP per Capita, Democratic Governance increases by 0.001519.</p>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Exploring Data on Documentation for Hugo Learn Theme</title>
+    <link>/en/descriptive_statistics/</link>
+    <description>Recent content in Exploring Data on Documentation for Hugo Learn Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language><atom:link href="/en/descriptive_statistics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Where to find data</title>
+      <link>/en/descriptive_statistics/find.data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/descriptive_statistics/find.data/</guid>
+      <description>When we are starting a new research project, quite often we assume that we need to collect data. However, this is not always required as there are many good quality datasets that are readily available for use. Most surveys are designed by very experienced researchers and cover a wide range of topics.
+For example, GESIS-Leibniz Institute of the Social Sciences,houses almost all comparative and German social surveys in Europe. Almost all European countries have a data archive.</description>
+    </item>
+    
+    <item>
+      <title>Explore your dataset</title>
+      <link>/en/descriptive_statistics/explore/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/descriptive_statistics/explore/</guid>
+      <description>Start by creating a folder dedicated to our module. On your computer go to My Documents and create a new folder entitled POLXXXX (XXXX indicates the code of our module). Go back to SurreyLearn and download the dataset in the folder. Go back to RStudio, create a new script file, name it Lab1.R.
+The first two lines of your script file should include the following three lines.
+rm(list = ls()) # This command will clean your workspace setwd(&amp;quot;~/POLXXXX&amp;quot;) # This command will tell RStudio to read and save files at the folder POLXXXX load(&amp;quot;EVS_UK.</description>
+    </item>
+    
+  </channel>
+</rss>

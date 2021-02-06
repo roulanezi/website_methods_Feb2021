@@ -1,0 +1,31 @@
+---
+title: Create your dependent variable
+weight: 30
+---
+
+
+```{r, include=FALSE}
+load("bes.RData")
+library(dplyr)
+eco_voting<-bes %>%select(b02,Age,edlevel,e01,l01,l02,l03,l04,p01)
+View(eco_voting)
+eco_voting[eco_voting <=-1] <- NA
+eco_voting[eco_voting <=-2] <- NA
+```
+
+
+## Create the dependent variable
+
+Our dependent variable is a dichotomous, dummy variable where $1$ means that the respondent voted for the party in government - this is what we are trying to explain- and $0$ means that they voted for another party. 
+
+```{r dependent}
+eco_voting<-eco_voting %>% mutate(incumbent=case_when(b02==2~1, b02==1~0, b02>=3~0)) 
+```
+
+You may use the `table()` function to double check the new variable entitled `incumbent':
+
+```{r check}
+table(eco_voting$b02)
+table(eco_voting$incumbent)
+```
+

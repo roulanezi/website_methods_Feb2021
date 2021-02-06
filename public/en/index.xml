@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Introduction to Quantitative Research Methods on Documentation for Hugo Learn Theme</title>
+    <link>/en/</link>
+    <description>Recent content in Introduction to Quantitative Research Methods on Documentation for Hugo Learn Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language><atom:link href="/en/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Where to find data</title>
+      <link>/en/descriptive_statistics/find.data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/descriptive_statistics/find.data/</guid>
+      <description>When we are starting a new research project, quite often we assume that we need to collect data. However, this is not always required as there are many good quality datasets that are readily available for use. Most surveys are designed by very experienced researchers and cover a wide range of topics.
+For example, GESIS-Leibniz Institute of the Social Sciences,houses almost all comparative and German social surveys in Europe. Almost all European countries have a data archive.</description>
+    </item>
+    
+    <item>
+      <title>Explore your dataset</title>
+      <link>/en/descriptive_statistics/explore/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/descriptive_statistics/explore/</guid>
+      <description>Start by creating a folder dedicated to our module. On your computer go to My Documents and create a new folder entitled POLXXXX (XXXX indicates the code of our module). Go back to SurreyLearn and download the dataset in the folder. Go back to RStudio, create a new script file, name it Lab1.R.
+The first two lines of your script file should include the following three lines.
+rm(list = ls()) # This command will clean your workspace setwd(&amp;quot;~/POLXXXX&amp;quot;) # This command will tell RStudio to read and save files at the folder POLXXXX load(&amp;quot;EVS_UK.</description>
+    </item>
+    
+    <item>
+      <title>Additional resources</title>
+      <link>/en/showcase/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/showcase/</guid>
+      <description>Here you may find some great resources for learning R Swirl
+Swirl, and interactive tutorial. It is an installable package that will run through RStudio.
+**Cookbook for R **
+A very useful online tutorial, especially when it comes to graphs
+Quick-R
+Another very useful website, here you will find clear and to the point instructions on how to create new variables, recode the values of existing ones, assign missing cases etc.</description>
+    </item>
+    
+    <item>
+      <title>Credits</title>
+      <link>/en/credits/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/credits/</guid>
+      <description>Contributors Thanks to them for making Open Source Software a better place !
+And a special thanks to @vjeantet for his work on docdock, a fork of hugo-theme-learn. v2.0.0 of this theme is inspired by his work.
+Packages and libraries  mermaid - generation of diagram and flowchart from text in a similar manner as markdown font awesome - the iconic font and CSS framework jQuery - The Write Less, Do More, JavaScript Library lunr - Lunr enables you to provide a great search experience without the need for external, server-side, search services&amp;hellip; horsey - Progressive and customizable autocomplete component clipboard.</description>
+    </item>
+    
+  </channel>
+</rss>

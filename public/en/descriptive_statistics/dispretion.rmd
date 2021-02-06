@@ -1,0 +1,28 @@
+---
+title: Measures of dispersion
+weight: 14
+---
+
+The **range** of a variable is the simplest and easiest measure of dispersion we can calculate, but at the same time is the less reliable one, this is because it depends only upon two values- the two extremes- that quite often are also outliers and are far away from the centre of the distribution.
+
+The **variance** is a measure that takes into consideration how far is each value from the mean. To calculate the variance we have to take into account that negative values might cancel out the positive ones, the mathematical trick to overcome this issue is to square the deviations from the mean. For example if the deviation from the mean is equal to -3 the squared deviation is equal to 9. The downside of this approach is that the _variance_ is reporting the squared deviation from the mean, in other words the outcome is not in the same units as the observed variable, and thus the interpretation is sometimes difficult. But, the variance has some very important uses!
+
+To calculate the variance in RStudio we use the `var()` function. 
+
+```{r, include = FALSE}
+load("EVS_UK.RData")
+```
+
+
+```{r}
+table(EVS_UK$v142)
+var(EVS_UK$v142,na.rm=TRUE) # na.rm deletes all cases with missing values before calculating the variance
+```
+
+To overcome this issue we calculate a statistical quantity called _standard deviation_ . Think of the standard deviation as the average amount the values of a variable deviate from the mean. The greater the dispersion, the bigger the deviation and eventually the standard deviation (sd). 
+
+In R we may calculate the standard deviation by using the `sd()` function. 
+
+```{r sd}
+sd(EVS_UK$v142, na.rm=TRUE) 
+```

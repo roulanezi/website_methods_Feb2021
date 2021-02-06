@@ -1,0 +1,176 @@
+[
+{
+	"uri": "/en/introduction/console/",
+	"title": "The Console",
+	"tags": [],
+	"description": "",
+	"content": "Basic mathematical operations Let\u0026rsquo;s get familiar with the Console by calculating some simple in RStudio. In it\u0026rsquo;s simplest form R can be used as very powerful calculator.\n5+5 Now let\u0026rsquo;s try to do the same by using some mathematical operations such as subtraction ( - ), division ( / ), and multiplication ( * ).\nSubtraction\n5-3 Division\n10/6 Multiplication\n7*5 You can edit your code in the console by using the arrow keys on your keyboard. The UP and DOWN keys will re-run your code without typing it again. You may edit your code by using the LEFT and/or the RIGHT keys\n"
+},
+{
+	"uri": "/en/descriptive_statistics/find.data/",
+	"title": "Where to find data",
+	"tags": [],
+	"description": "",
+	"content": "When we are starting a new research project, quite often we assume that we need to collect data. However, this is not always required as there are many good quality datasets that are readily available for use. Most surveys are designed by very experienced researchers and cover a wide range of topics.\nFor example, GESIS-Leibniz Institute of the Social Sciences,houses almost all comparative and German social surveys in Europe. Almost all European countries have a data archive. In the UK we have the UK Data Archive, the UKDA is the national data archive. Additionally, the World Bank and Eurostat, the statistical office of the European Union, provide a wide range of statistics, such as the GDP per Capita, inflation, unemployment, etc.\nTo download data you need to register first, this is easy to do, you only need an email address. Once you register you may download any dataset you are interested in, for free.\nIn our module we will use the European Value Study (EVS). EVS, provides insights into the ideas, beliefs, preferences, attitudes, values and opinions of citizens all over Europe. The European Values Study covers a wide range of human values. The main topics covered concern concepts such as family, work, environment, perceptions of life, politics and society, religion and morality, national identity.\nYou may download the dataset from our module\u0026rsquo;s website on SurreyLearn.\n"
+},
+{
+	"uri": "/en/introduction/script/",
+	"title": "Scripts",
+	"tags": [],
+	"description": "",
+	"content": "The Console is very important and useful for small tasks but if you are working on your assignment or any other project of yours you have to save your work. This is very important - first of all because you will have to submit this file with your assignment second, when you make a mistake you will want to review your script and avoid re-write everything!\nScript files in R are similar to text files. In RStudio the so-called Script files are plain text, like a notepad that contains R code. You may edit a Script as you are editing a Word or a text file.\nThe below image shows you how to open an \u0026lsquo;R Script\u0026rsquo; file:\nOnce you created a new Script give it a \u0026ldquo;good name\u0026rdquo;, and save it. For example, you may call it seminar_1.\nHow to run your code. There are different ways of doing so. If you want to:\n Run one line at a time? then place the cursor on the line you want and hit CTRL+ENTER on Windows and COMMAND+ENTER on Mac. Also, you can hit the Run button at the top right side of the Console pane. Many lines at the same time? then select the lines and hit CTRL+ENTER or use the Run button. The entire Script? then use the Source button   "
+},
+{
+	"uri": "/en/descriptive_statistics/explore/",
+	"title": "Explore your dataset",
+	"tags": [],
+	"description": "",
+	"content": "Start by creating a folder dedicated to our module. On your computer go to My Documents and create a new folder entitled POLXXXX (XXXX indicates the code of our module). Go back to SurreyLearn and download the dataset in the folder. Go back to RStudio, create a new script file, name it Lab1.R.\nThe first two lines of your script file should include the following three lines.\nrm(list = ls()) # This command will clean your workspace setwd(\u0026quot;~/POLXXXX\u0026quot;) # This command will tell RStudio to read and save files at the folder POLXXXX load(\u0026quot;EVS_UK.RData\u0026quot;) We can now start exploring our data. We can look the names of our variables with the names() function.\nnames(EVS_UK) To see how our dataset looks like we can use the head() function\nhead(EVS_UK) Let\u0026rsquo;s explore what people think about democracy\nboxplot(EVS_UK$v137, main= \u0026quot;Attitudes towards democracy\u0026quot;, ylab= \u0026quot;Agree/Disagree\u0026quot;) "
+},
+{
+	"uri": "/en/introduction/vectors/",
+	"title": "Vectors",
+	"tags": [],
+	"description": "",
+	"content": "A vector is a collection of elements, a basic data structure. Vectors are crucial in RStudio because they can used to represent variables. The data types contained by a vector could be logical e.g (TRUE, FALSE), integer e.g (1, 2, 3), or character e.g (\u0026quot;Roula\u0026quot;, \u0026quot;Micheal\u0026quot;). The c() function is very useful as it allows us to create a vector in R. The c stands for combine (or concatenate), because multiple elements are combined into a vector.\nx \u0026lt;-c(1,2,3,4,5,6,7,8,9,10) x An important property of vectors is their length. The length of a vector is the count of how many elements are within it.\nlength(x) Additionally, you may create a vector using the seq() function. The seq() function generates a sequence of numbers. For example, if you want to generate a sequence of numbers from 0 to 30 incremented by 3 you can do so using the following command\nseq(from=0, to=30, by=3) "
+},
+{
+	"uri": "/en/introduction/functions/",
+	"title": "Functions in RStudio",
+	"tags": [],
+	"description": "",
+	"content": "What is a function? In simple words, a function is a set of instructions that you want to use. A function is a code written to carry out a specific task. For example, you want to know the sum of 1+2+3, instead of using the + sign we can use the sum function to add numbers. For example:\n1+2+3 or\nsum(1,2,3) or\nsum(1:3) "
+},
+{
+	"uri": "/en/introduction/help/",
+	"title": "Getting Help",
+	"tags": [],
+	"description": "",
+	"content": "Learning a new software is like learning a new language, and some functions or commands will be like unknown words. An important function in R is help. For example, if we wanted to know how exactly to use the sum function, we could type help(sum). You will see the results in the bottom-right panel.\nhelp(sum) or by using the question mark sign (?)\n?sum How to use the help page All help pages, like the one shown above, follow the same structure.\n   Name Value     Description A brief description of the function   Usage The complete syntax that includes all possible functions   Arguments A brief explanation of all arguments   Details Any relevant detail related to the function and its arguments   Value The output values of the function   Examples Examples of how to use the function    "
+},
+{
+	"uri": "/en/introduction/operator/",
+	"title": "The Assignment Operator",
+	"tags": [],
+	"description": "",
+	"content": "We now know how to use a function using the parenthesis sign (), but we are also interested in the output of a function.\nIn RStudio we use the assignment operator ← for creating or updating existing objects. If we wanted to save the results of sum(1,2,3), we would have to use the assignment operator\nmysum \u0026lt;-sum(1:3) the line above created a new object called (mysum) in our environment and saves the result of the sum(1, 2, 3)\nAssignment operator shortcut Windows: \u0026ldquo;Alt\u0026rdquo; + \u0026ldquo;-\u0026rdquo;\nMac: \u0026ldquo;Option\u0026rdquo; + \u0026ldquo;-\u0026rdquo;\n If you look at the Environment pane in RStudio you will see mysum\nIf you want to delete objects from the environment, you can use the broom button.\nYou may give to your objects any name you like but let\u0026rsquo;s admit it, some names are just bad names\u0026hellip; You may find below some examples of good names and bad names\nAvoid using names such as:\n   Good names Bad names     my_model this.is.my.model   M1 m   model1 data, function (i.e. same name as commands )   model.1     "
+},
+{
+	"uri": "/en/introduction/data_frames/",
+	"title": "Data Frames",
+	"tags": [],
+	"description": "",
+	"content": "In R a data frame is a kind of object. Like vectors, data frames store data. However, data frames are differ in that they store multiple vectors. It is important that you understand what a data frame is as it is the most frequently used tool in political statistical analysis.\nIf you are having a hard time visualizing a dataframe simply think of what a spreadsheet looks like. Each column of the dataframe can be said to be vector, each vector represents a variable and the rows coincide with an observation. In all statistical software variables are represented by columns and observations are by rows.\nYou may create a data frame manually if you want but living in the age of big data this is rarely the case! There are many example datasets pre-loaded in RStudio.\nLet\u0026rsquo;s have a look at one of these pre-loaded data frames. The data frame is called longley (this is an pre-loaded economic dataset)\nUsing the View function let\u0026rsquo;s see the variables included in the dataset\ndata(\u0026quot;longley\u0026quot;) View(longley) If we want to see individuals columns, in other words, a specific variable in the data frame, then we use the $ sign between the name of the dataset and the name of the variable (e.g name_of_dataset$name_of_variable). Let\u0026rsquo;s start by observing the Unemployment column.\nlongley$Unemployed In addition, often we want to access only certain observations (rows) or only certain variables (columns). By using the square brackets [ ] we subset the data frame. In the square brackets, we insert the coordinates for a row and a column. The row is always first followed by the column. For example, longey[7, 5] gives us the 7th row and the 5th column. If we leave the column coordinate empty then we want to see all columns longey[7, ]. If we leave the row coordinate empty then we want all columns.\nlongley[7,5] Leave the column coordinate empty to see the 7th row\nlongley[7, ] Leave the row empty to see the 5th column\nlongley[ ,5] We may see the first ten rows of a dataset by adding a colon in the brackets\nlongley[1:10, ] Plots Let\u0026rsquo;s create a plot from our dataset. Let\u0026rsquo;s start by creating a scatterplot with the one axis (X) representing the Year and the other (Y) axis the Gross National Product\nplot(longley$Year,longley$GNP) to create the same plot but by using a line instead of dots we add the argument type=\u0026quot;l\u0026quot;\nplot(longley$Year,longley$GNP,type = \u0026quot;l\u0026quot;)  Use the title() function, to give labels to the axes, and a title to your plot. The examples in the help are particularly informative.\n "
+},
+{
+	"uri": "/en/descriptive_statistics/",
+	"title": "Exploring Data",
+	"tags": [],
+	"description": "",
+	"content": "In this section we will learn some useful functions which will use for data exploration and manipulation. Also, we will familiarise ourselves with the measures of central tendency and understand how these can help us develop some simple descriptive statistics.\nThe most common measures of central tendency are the mean, median, and mode. These are the basic measures you will use when you are attempting to describe the data you are exploring. In simple words descriptive statistics such as the mean, median and mode provide summaries about your population sample.\nDescriptive statistics are distinguished from inferential statistics. When you are using descriptive statistics you are only describing your data. With inferential statistics, you are trying to generalise from your sample about the whole population. For example, we use inferential statistics to infer what voters think about the current party in government.\nSo, we use inferential statistics to make inferences about the whole population and we use descriptive statistics to describe our data.\n"
+},
+{
+	"uri": "/en/introduction/libraries/",
+	"title": "Packages",
+	"tags": [],
+	"description": "",
+	"content": "What is a package in RStudio?\nPackages in RStudio are like apps we are using on our smartphones. For example, if you want to talk to your friends you will install WhatsApp or any other app you prefer. This is the case with R - some statistical actions require specific packages.\nHow to install a package in R\nYou may install a package by typing `install.packages(\u0026ldquo;name of the package\u0026rdquo;)'. Below you may find an example on how to install one of the most important packages in R, tidyverse:\ninstall.packages(\u0026quot;tidyverse\u0026quot;) Alternatively, you may install any package you need by clicking on the Packages tab in the bottom right pane and then click install. A dialog box will appear. In the install Packages dialog write the name of the package you want to install and click install. This will install the package you are looking for.\nHow to load a package\nOnce your package is installed, you are ready to use it. The easiest way to do that is by typing `library(name of the package)'. For example lets load the tidyverse package:\nlibrary(tidyverse) "
+},
+{
+	"uri": "/en/introduction/loading_data/",
+	"title": "Loading Data",
+	"tags": [],
+	"description": "",
+	"content": "Now that we have seen some examples of how we can use the pre-installed datasets in R, we can look at some common ways of loading in our own data into the R environment for analysis. This will become more useful as your find and develop your own datasets for any future projects (after all, if you can\u0026rsquo;t load your data correctly how can you analyse it?).\nYou will find all datasets that we will be using in the \u0026lsquo;datasets\u0026rsquo; section of SurreyLearn.\nLearning Objectives By the end of this section you should be able to:\n Set your working directory and get your working directory location. load R data and .csv files using the \u0026lsquo;tidyverse\u0026rsquo; package. load STATA and SPSS data.   Loading .csv data using \u0026lsquo;tidyverse\u0026rsquo; # To practice this method you will need to install the tidyverse package. install.packages(\u0026quot;tidyverse\u0026quot;) # Once you have installed tidyverse, use the below command to call it from your library. library(\u0026quot;tidyverse\u0026quot;) # Note you will only need to install a package once, there is no need to use the install.packages on the same package after you have installed it once. The tidyverse has a number of packages within it, including the readr package. We can use the read_csv() function in the readr package to load in a comma delimited file (.csv). It is very common that you will be able to access data in a csv format, if your data is in .xls or .xlsx format it is recommended that you \u0026lsquo;export as\u0026rsquo; a .csv. This will make it much easier for you to load it into your enviroment with the read_csv() function.\nFrom the data section of SurreyLearn please download the \u0026lsquo;V_Dem.csv\u0026rsquo; file and save it in your working directory. If you are not sure about the location of your working directory use the getwd() function to locate our working directory.\ngetwd() #In you console you should now see somthing like: [1] \u0026quot;/Users/michealslade/Documents/GitHub/Quants_website_2021/Learn_update_2021\u0026quot; Note if you do not get an output, this means you have not set your working directory yet. You can do this by selecting a folder from the session dropdown menu and selecting the \u0026lsquo;Choose Directory\u0026hellip;\u0026rsquo; option as illustrated below.\nOnce you have set your working directory and run getwd you will notice that the output in the console will be unique to each of you. This is because the file path shows you the location of working directory in your personal computer. Now that that we have the tidyverse package loaded as well as the location of our file path and data, we move on to practicing how to load in our csv with one simple line of code.\n# We are going to use the flowing format to load in our data read_csv(\u0026quot;file path + name of file \u0026quot;) # In this case the name of the is 'V_Dem.csv'. So your file path should look something like mine below. V_Dem\u0026lt;- read_csv(\u0026quot;/Users/michealslade/Documents/GitHub/Quants_website_2021/Learn_update_2021/content/Introduction/Loading_Data/V_Dem.csv\u0026quot;) You should now have the below dataset in your Global Environment.\nLoading STATA \u0026amp; SPSS using the \u0026lsquo;sjlabelled\u0026rsquo; When with with political data you will inevitably come across a variety data types that are generated from other statistical softwares such as STATA and SPSS. STATA saves data as a .dta file type while SPSS typically saves files as a .sav file type. Similar to the .csv, we will need to ustilise an r package to load this data into our R environment for analysis.\nFor this we will need to utlise the sjlabelled package.\n# Again we will need to install the package. install.packages(\u0026quot;sjlabelled\u0026quot;) # Once you have installed sjlabelled, we again need to call it from our 'library' library(\u0026quot;sjlabelled\u0026quot;) Once you have completed calling these two functions you are ready to begin practicing loading STATA and SPSS data. For the next part of this exercise you will need to download the \u0026lsquo;V_Dem.dta\u0026rsquo; and \u0026lsquo;V_Dem.sav\u0026rsquo; data from the datasets section of the SurreyLearn module page.\nOne you have these two datasets downloaded move them to your working directory. Remember you can use the getwd() function if you are not sure where your working directory is. Now we will use the read_spss and read_stata functions in sjlabelled to load in these two datasets.\n# get your working directory getwd() # Once you have this add the name of we can load in the two V_Dem files as follows file as follows: # For SPSS data V_Dem_Spss \u0026lt;- read_spss(\u0026quot;/Users/michealslade/Documents/GitHub/Quants_website_2021/Learn_update_2021/content/Introduction/Loading_Data/V_Dem.sav\u0026quot;) # For STATA data V_Dem_Stata \u0026lt;- read_stata(\u0026quot;/Users/michealslade/Documents/GitHub/Quants_website_2021/Learn_update_2021/content/Introduction/Loading_Data/V_Dem.dta\u0026quot;) #Viola! You now should be able to see two datsets in your global environment as in the image below. If you are having issues dont forget to replace my file path above with yours and ensure that the file path is between the \u0026quot;\u0026quot; symbol.\nRecap  You can set your working directory and get your working directory using the setwd() and getwd() commands respectively. You should be able to load R data () and .csv (read_csv) files using the \u0026lsquo;tidyverse\u0026rsquo; package. You should be able to load STATA (read_stata) and SPSS data (read_spss) using the \u0026lsquo;sjlabelled\u0026rsquo; package.   "
+},
+{
+	"uri": "/en/clm/",
+	"title": "The Central Limit Theorem",
+	"tags": [],
+	"description": "",
+	"content": "The Central Limit Theorem is one of the most important concepts in statistics, it is at the core of hypothesis testing.\nThe main idea of the Central Limit Theorem is that if we take repetitive samples from a random sample, then the sample means will be normally distributed. I prepared an example for you!\n"
+},
+{
+	"uri": "/en/bivariate/",
+	"title": "Bivariate Analysis",
+	"tags": [],
+	"description": "",
+	"content": "Bivariate analysis refers to the analysis of two variables. When we perform a bivariate analysis our aim is to examine whether there is a relationship between two variables, the strenght of this relationship, but also whether there are differences between the two variables and whether these differences are significant.\n"
+},
+{
+	"uri": "/en/graphs/",
+	"title": "Visualising relationships",
+	"tags": [],
+	"description": "",
+	"content": "In this section we will learn how to produce graphs in RStudio! In R you can produce simple graphs like a histogram or a bar-plot or even maps and interactive graphs!\nMany media outlets and/or polling agencies even public institutions are using RStudio to produce graphs and reports.\nFor example the BBC team developed the package below which is free to use if you want to create BBC style graphics!\nBBC Visual and Data Journalism cookbook for R graphics\nWe will start by creating some simple graphs to learn the basic commands.\n"
+},
+{
+	"uri": "/en/regression_analysis/",
+	"title": "Regression Analysis- The basics",
+	"tags": [],
+	"description": "",
+	"content": "Regression analysis is in simple words a statistical method that allows you to test the relationship between two or typically more variables. There are many types of regression analysis (linear, logistic, multinomial), but all of them at their core, examine the effect of one or more independent variables on a dependent variable.\n"
+},
+{
+	"uri": "/en/multivariate_regression/",
+	"title": "Multivariate regression analysis",
+	"tags": [],
+	"description": "",
+	"content": "In this section we will learn how to run a regression analysis with more than one independent variables.\nAlmost all social phenomena have more than one cause. To control, statistically, for all possible causes social scientists employ multinomial regression analysis.\nThe multivariate regression model is the following:\n\\(Y_{i}=\\alpha+\\beta_{1}X_{i}+ \\beta_{2}Z_{i}+ u_{i}\\)\nThe interpretation of the slope coefficients for the multivariate- in this case three variable model- is similar to the bivariate model but with one major difference. The coefficient $$\\beta_{1}$$ represents the effect of X on Y while keeping Z (the third variable) constant. The same will hold if we had a model with four variables.\n"
+},
+{
+	"uri": "/en/binary_regression/",
+	"title": "Binary regression analysis",
+	"tags": [],
+	"description": "",
+	"content": "In this section we will learn how to run a binary regression analysis with more than one independent variables. The binary regression model estimates a relationship between one or more explanatory variables and a single output binary variable.\n"
+},
+{
+	"uri": "/en/interaction_term/",
+	"title": "Interaction Terms",
+	"tags": [],
+	"description": "",
+	"content": "Interaction term: A new variable that represents an interaction between two variables. These two variables forming that interaction term, interact to affect the dependent variable.\n"
+},
+{
+	"uri": "/en/showcase/",
+	"title": "Additional resources",
+	"tags": [],
+	"description": "",
+	"content": "Here you may find some great resources for learning R Swirl\nSwirl, and interactive tutorial. It is an installable package that will run through RStudio.\n**Cookbook for R **\nA very useful online tutorial, especially when it comes to graphs\nQuick-R\nAnother very useful website, here you will find clear and to the point instructions on how to create new variables, recode the values of existing ones, assign missing cases etc.\nR-Ladies\nThose are the ones I use, including R-Ladies, a group aiming to promote gender diversity in the R community.\n"
+},
+{
+	"uri": "/en/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/en/credits/",
+	"title": "Credits",
+	"tags": [],
+	"description": "",
+	"content": "Contributors Thanks to them for making Open Source Software a better place !\nAnd a special thanks to @vjeantet for his work on docdock, a fork of hugo-theme-learn. v2.0.0 of this theme is inspired by his work.\nPackages and libraries  mermaid - generation of diagram and flowchart from text in a similar manner as markdown font awesome - the iconic font and CSS framework jQuery - The Write Less, Do More, JavaScript Library lunr - Lunr enables you to provide a great search experience without the need for external, server-side, search services\u0026hellip; horsey - Progressive and customizable autocomplete component clipboard.js - copy text to clipboard highlight.js - Javascript syntax highlighter modernizr - A JavaScript toolkit that allows web developers to use new CSS3 and HTML5 features while maintaining a fine level of control over browsers that don\u0026rsquo;t support  Tooling  Netlify - Continuous deployement and hosting of this documentation Hugo  "
+},
+{
+	"uri": "/en/",
+	"title": "Introduction to Quantitative Research Methods",
+	"tags": [],
+	"description": "",
+	"content": "Welcome to Quantitative research methods! This module will introduce you to concepts and techniques essential to the analysis of political issues using quantitative methods. This module provides an introduction to quantitative analysis and the ways in which these tools are applied to politics.\nTogether we will cover topics related to statistical inference; hypothesis testing; bivariate and multivariate regression analysis, and interaction terms among others.\nThis course will also provide you the opportunity to become proficient in the use of cutting edge computer software widely used in analysing quantitative data.\nStart by revising some of the main concepts you learn last semester such as research question, research hypothesis, variables, surveys, experiments.\n "
+},
+{
+	"uri": "/en/introduction/",
+	"title": "Introductions",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/en/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
