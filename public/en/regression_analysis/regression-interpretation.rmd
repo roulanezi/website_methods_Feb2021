@@ -1,0 +1,61 @@
+---
+title: Interpreting the regression output
+weight: 23
+---
+
+
+Let's start by having a look at the formula: 
+
+```
+lm(formula = Dem_Gov1984 ~ GDPPC1984, data = GDP_Dem)
+```
+
+<p> <span style="color:red;"> Dem_Gov1984 </span>: is our **dependent variable**</p>
+
+<p> <span style="color:red;"> GDPPC1984 </span> : is our **independent variable**
+
+```
+Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -104.470  -16.507   -6.817   16.879   53.869 
+```
+
+<p> <span style="color:red;"> Residuals </span>: The difference between the observed values and the predicted values of GDPPC1984. 
+
+```
+Coefficients:
+             Estimate Std. Error t value Pr(>|t|)    
+(Intercept) 1.924e+01  3.777e+00   5.094 1.70e-06 ***
+GDPPC1984   1.519e-03  2.522e-04   6.024 2.99e-08 ***
+```
+This part of the output describes the coefficients for the intercept and the independent variables.
+
+Remember the general formula: Y=a+bx+e
+
+We can re-write the formula using the coefficients to describe the relationship between Dem_Gov1984 and GDPPC1984.
+
+<center>
+<p> <span style="color:red;"> Dem_Gov1984 = 1.92 + (1.51 * GDPPC1984) </span>
+</center>
+
+This tells us that **for each unit increase** in the variable **Dem_Gov1984**, **GDPPC1984 increases by 1.51**
+
+
+The <span style="color:red;">standard error</span> estimates the standard deviation of the sampling distribution of the coefficients in our model. 
+
+The <span style="color:red;">t statistic </span>, is used to conduct hypothesis tests on the regression coefficients. The t-test is obtained by dividing the coefficients by the standard error.
+
+```
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+```
+
+The <span style="color:red;">p-value </span> for each of the coefficients included in the model. According to the null hypothesis the value of the coefficient we are interested in is zero. Remember that hypothesis testing is based on the null hypothesis, the p-value will tell us whether we can reject or not the null hypothesis.
+
+
+```
+R-squared:  0.2702, Adjusted R-squared:  0.2628 
+```
+
+The <span style="color:red;"> R-squared </span> and adjusted <span style="color:red;">  R-squared</span> tell us how much of the variance in our model is accounted for by the independent variable. 
+
+The <span style="color:red;"> adjusted R-squared </span> is a modified version of R-squared that has been adjusted for the number of predictors in the model.

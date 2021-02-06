@@ -1,0 +1,109 @@
+---
+title: Graphs-ordinal variables
+weight: 22
+---
+
+#### Learning Objectives
+
+By the end of this section you should be able to:
+
+* Plot ordinal variables using ggplot2 
+* Change or adjust the labels of a variable
+* Use the density plot to represent ordinal variables.
+
+
+
+```{r, include=FALSE}
+library(ggplot2)
+load("EVS_UK.RData")
+ggplot(EVS_UK) # this created an empty plot
+EVS_UK$gender<- factor(EVS_UK$v225,
+               levels = c(1,2),
+               labels = c("Men", "Women"))
+
+table(EVS_UK$gender)
+
+EVS_UK$education <- ordered(EVS_UK$v243_r_weight, #here you specify that this is ordered variable
+levels = c(1,2,3), # here you specify the values of the variable
+labels = c("Low", "Medium", "High"))  #here you specify the names of the values
+
+plot1<-ggplot(EVS_UK, aes(x = gender)) +
+  geom_bar() +
+  theme_classic()
+
+plot1   # You can't view the plot unless you call it 
+
+plot1<-plot1 + scale_x_discrete(breaks=c("1", "2"),
+                      labels=c("Men", "Women"))
+plot1
+plot1<- plot1 +labs( y="Number of cases", x = "Responder's gender")
+plot1<-plot1 + geom_bar(aes(fill = education))
+plot1
+plot1 + theme(legend.position="top")
+plot1<-plot1 + theme(legend.position = c(0.25, 0.9),
+          legend.direction = "horizontal") 
+plot1 
+```
+
+In this section we will use two variables describing anti-immigration attitudes, the first one is called `v184` and is asking respondents to agree or diagree with the following statement _"Immigrants take away jobs"_. The second variable is called `v186` and is asking respondents whether _"Immigrants are responsible for crime"_.
+
+```{r}
+names(EVS_UK)[names(EVS_UK) == "v184"] <- "immi_jobs"
+
+table(EVS_UK$immi_jobs) # This is to check whether the function was correctly specified
+```
+We may add labels to the values using the functions we used at section 1:
+
+{{% notice tip %}} If you only want to rename the name of the variable the easiest way is by using the `names()` function. 
+{{% /notice %}}
+
+```{r}
+EVS_UK$immi_jobs <- ordered(EVS_UK$immi_jobs,#here you specify that this is ordered variable
+levels = c(1,2,3,4,5), # here you specify the values of the variable
+labels = c("Completely agree", "Agree", "Neither/nor","Disagree", "Completely disagree" ))  #here you specify the names of the values
+
+table(EVS_UK$immi_jobs)
+```
+
+We will do the same for the variable describing whether "Immigrants tare responsible for crime". 
+
+```{r}
+EVS_UK$immi_crime <- ordered(EVS_UK$v186,#here you specify that this is ordered variable
+levels = c(1,2,3,4,5),# here you specify the values of the variable
+labels = c("Completely agree", "Agree", "Neither/nor","Disagree", "Completely disagree" ))  #here you specify the names of the values
+
+table(EVS_UK$immi_jobs)
+```
+
+
+
+
+```{r}
+plot3<-ggplot(na.omit(EVS_UK), aes(x = immi_crime),na.rm = TRUE) + geom_bar() + facet_grid(gender ~.)+
+  theme_classic() #The na.omit() function will remove NAs
+
+plot3
+```
+
+### Density Plots
+
+```{r}
+plot4 <- ggplot(na.omit(EVS_UK), aes(immi_crime))
+
+plot4 + geom_density(aes(fill=factor(gender)), alpha=0.5) + 
+    labs(title="Density plot", 
+         subtitle="Anti-immigration attitudes by gender",
+         caption="Source: European Value Study",
+         x="Anti-immigration attitudes",
+         fill="Gender")+
+  theme_classic()
+```
+
+# Recap
+
+* You can plot ordinal data using `geom_density()` in ggplot2.
+* You can adjust or rename the ordinal data using the `ordered`,`levels` and `labels` functions in R.
+
+
+
+

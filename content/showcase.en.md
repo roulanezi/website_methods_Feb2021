@@ -1,0 +1,25 @@
+---
+disableToc: true
+title: Additional resources
+---
+
+
+Here you may find some great resources for learning R
+======================
+
+
+**Swirl**
+
+Swirl, and interactive tutorial. It is an installable package that will run through RStudio.
+
+**Cookbook for R **
+
+A very useful online tutorial, especially when it comes to graphs
+
+**Quick-R**
+
+Another very useful website, here you will find clear and to the point instructions on how to create new variables, recode the values of existing ones, assign missing cases etc.
+
+**R-Ladies**
+
+Those are the ones I use, including R-Ladies, a group aiming to promote gender diversity in the R community.

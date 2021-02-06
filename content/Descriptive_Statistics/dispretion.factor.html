@@ -1,0 +1,42 @@
+---
+title: Categorical variables
+weight: 15
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>Some variables, consist of named categories, e.g. the name of your favourite brand. A category-variable, or a categorical variable refers to any variable that puts individuals into categories. These variables are also called nominal variables. The word <em>nominal</em> comes from Latin (<em>nominalis</em>=of a name), because we are giving names to the values of our variable.</p>
+<p>With categorical variables we want to understand the frequency with which each value appears in our dataset. As you already know the easiest way to do so is by producing a table. Remember the <code>table ()</code> function. The appropriate measure of central tendency for categorical variables is the <strong>mode</strong> and/or the <strong>median</strong>.</p>
+<p>Below we will learn some basic data manipulation for categorical variables. Starting with identifying the <code>class()</code> of a variable before we move to assigning a new name to variable and to the values of a categorical variable.</p>
+<p>There are numerous data types in R. The most frequent used ones are numeric, character (string) or factor, and logical (TRUE or FALSE). To check the type of data contained in a variable we can use the <code>class()</code> function.</p>
+<pre class="r"><code>load(&quot;EVS_UK.RData&quot;)</code></pre>
+<p>To find the length of a character variable we use the <code>nchar()</code> function.</p>
+<pre class="r"><code>EVS_UK$education&lt;-EVS_UK$v243_r_weight
+table(EVS_UK$education)</code></pre>
+<pre><code>## 
+##   1   2   3 
+## 590 313 885</code></pre>
+<p>As you know, education is a classic example of a categorical variable. How can we assign labels to the values of the variable? This is easy.</p>
+<p>Note that as the same time we will learn how to covert a variable to factor but also we will give a name to the values.</p>
+<p>Let’s do it!</p>
+<pre class="r"><code>EVS_UK$education &lt;- factor(EVS_UK$education,
+                         levels = c(1, 2, 3),
+                         labels = c(&quot;Low&quot;, &quot;Medium&quot;, &quot;Upper&quot;))
+table(EVS_UK$education)</code></pre>
+<pre><code>## 
+##    Low Medium  Upper 
+##    590    313    885</code></pre>
+<p>Let’s examine our new factor variable with a frequency table</p>
+<pre class="r"><code>table(EVS_UK$education)</code></pre>
+<pre><code>## 
+##    Low Medium  Upper 
+##    590    313    885</code></pre>
+<p>The most common graphical representation of categorical variables is bar graphs and pie charts.</p>
+<pre class="r"><code>library(ggplot2)
+ggplot(data.frame(EVS_UK), aes(x=education)) +
+  geom_bar()</code></pre>
+<p><img src="/Descriptive_Statistics/dispretion.factor_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>{{% notice note %}}
+Adjust the width of the bars using the width function, change the appearance of the axes by giving labels. Give a title to your graph. <a href="https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">RStudio Base cheatsheet</a>
+{{% /notice %}}</p>

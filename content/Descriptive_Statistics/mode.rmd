@@ -1,0 +1,26 @@
+---
+title: The mode
+weight: 13
+---
+
+In contrast to the other two measures of central tendency we don't need a build-in function to calculate the mode. Simply because it is very easy to do it on our own. Think what the mode is...
+
+To find the value that appears most often, all we have to do is to tabulate the variable we are interested in. This is easily done with the `table()` function.
+
+```{r, include = FALSE}
+load("EVS_UK.RData")
+```
+
+```{r}
+dem_mode<-table(EVS_UK$v142)
+dem_mode
+```
+
+In simple words the `table()` function creates a table that tell us the number of people (cases) that fall into each category. For example, 11 responders place themselves at number 3. In this case the mode is 10, because it is the response that occurs more often, 1031 times.
+
+This approach, is practical only when our variable has a small number of values, when our variable consists of a long list of numbers then we need a slightly more sophisticated approach. Let's see that step by step. Our first step is to sort our variable ranging from the largest to the smallest value. This way the first value is our mode! 
+
+```{r}
+data_sort<- sort(dem_mode, decreasing=TRUE)
+data_sort
+```

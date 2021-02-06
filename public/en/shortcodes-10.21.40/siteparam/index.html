@@ -1,0 +1,2980 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.75.1" />
+    <meta name="description" content="Get value of site params variables in your page.">
+<meta name="author" content="Mathieu Cornic">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Site param :: Documentation for Hugo Learn Theme</title>
+
+    
+    <link href="/css/nucleus.css?1612607277" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1612607277" rel="stylesheet">
+    <link href="/css/hybrid.css?1612607277" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1612607277" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1612607277" rel="stylesheet">
+    <link href="/css/auto-complete.css?1612607277" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1612607277" rel="stylesheet">
+    <link href="/css/theme.css?1612607277" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1612607277" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1612607277"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/en/shortcodes-10.21.40/siteparam/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"><style>img{display: block; margin-left: auto; margin-right: auto;}</style></head><body><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAfQAAAH0CAYAAADL1t+KAAAgAElEQVR4Xu3dCbhNVR/H8b+hkJeKZChNxhLljUTlNYYMiWgyVqhEUYYiRUTmmco8KyKiDCFlJlKUSmkSolSKCO/zP5zrnHvPOXvvu8+9d929v+t53ud9unetvdf6rHXuz95nDxny35bjtFAQQAABBBBAIF0LZCDQ0/X80XkEEEAAAQQCAgQ6CwEBBBBAAAEPCBDoHphEhoAAAggggACBzhpAAAEEEEDAAwIEugcmkSEggAACCCBAoLMGEEAAAQQQ8IAAge6BSWQICCCAAAIIEOisAQQQQAABBDwgQKB7YBIZAgIIIIAAAgQ6awABBBBAAAEPCBDoHphEhoAAAggggACBzhpAAAEEEEDAAwIEugcmkSEggAACCCBAoLMGEEAAAQQQ8IAAge6BSWQICCCAAAIIEOisAQQQQAABBDwgQKB7YBIZAgIIIIAAAgQ6awABBBBAAAEPCBDoHphEhoAAAggggACBzhpAAAEEEEDAAwIEugcmkSEggAACCCBAoLMGEEAAAQQQ8IAAge6BSWQICCCAAAIIEOisAQQQQAABBDwgQKB7YBIZAgIIIIAAAgQ6awABBBBAAAEPCBDoHphEhoAAAggggACBzhpAAAEEEEDAAwIEugcmkSEggAACCCBAoLMGEEAAAQQQ8IAAge6BSWQICCCAAAIIEOisAQQQQAABBDwgQKB7YBIZAgIIIIAAAgQ6awABBBBAAAEPCBDoHphEhoAAAggggACBzhpAAAEEEEDAAwIEugcmkSEggAACCCBAoLMGEEAAAQQQ8IAAge6BSWQICCCAAAIIEOisAQQQQAABBDwgQKB7YBIZAgIIIIAAAgQ6awABBBBAAAEPCBDoHphEhoAAAggggACBzhpAAAEEEEDAAwIEugcmkSEggAACCCBAoLMGEEAAAQQQ8IAAge6BSWQICCCAAAIIEOisAQQQQAABBDwgQKB7YBIZAgIIIIAAAgQ6awABBBBAAAEPCBDoHphEhoAAAggggACBzhpAAAEEEEDAAwIEugcmkSEggAACCCBAoLMGEEAAAQQQ8IAAge6BSWQICCCAAAIIEOisAQQQQAABBDwgQKB7YBIZAgIIIIAAAgQ6awABBBBAAAEPCBDoHphEhoAAAggggACBzhpAAAEEEEDAAwIEugcmkSEggAACCCBAoLMGEEAAAQQQ8IAAge6BSWQICCCAAAIIEOisAQQQQAABBDwgQKB7YBIZAgIIIIAAAgQ6awABBBBAAAEPCBDoHphEhoAAAggggACBzhpAAAEEEEDAAwIEugcmkSEggAACCCBAoLMGEEAAAQQQ8IAAge6BSWQICCCAAAIIEOisAQQQQAABBDwgQKB7YBIZAgIIIIAAAgQ6awABBBBAAAEPCBDoHphEhoAAAggggACBzhpAAAEEEEDAAwIEugcmkSEggAACCCBAoLMGEEAAAQQQ8IAAge6BSWQICCCAAAIIEOisAQQQQAABBDwgQKB7YBIZAgIIIIAAAgQ6awABBBBAAAEPCBDoHphEhoAAAggggACBzhpAAAEEEEDAAwIEugcmkSEggAACCCBAoLMGEEAAAQQQ8IAAge6BSWQICCCAAAIIEOisAQQQQAABBDwgQKB7YBIZAgIIIIAAAgQ6awABBBBAAAEPCBDoHphEhoAAAggggACBzhpAAAEEEEDAAwIEugcmkSEggAACCCBAoLMGEEAAAQQQ8IAAge6BSWQICCCAAAIIEOisAQQQQAABBDwgQKB7YBIZAgIIIIAAAgQ6awABBBBAAAEPCBDoHphEhoAAAggggACBzhpAAAEEEEDAAwIEugcmkSEggAACCCBAoLMGEEAAAQQQ8IAAge6BSWQICCCAAAIIEOisAQQQQAABBDwgQKB7YBIZAgIIIIAAAgQ6awABBBBAAAEPCBDoHphEhoAAAggggACBzhpAAAEEEEDAAwIEugcmkSEggAACCCBAoLMGEEAAAQQQ8IAAge6BSWQICCCAAAIIEOisAQQQQAABBDwgQKB7YBIZAgIIIIAAAgQ6awABBBBAAAEPCBDoHphEhoAAAggggACBzhpAAAEEEEDAAwIEugcmkSEggAACCCBAoLMGEEAAAQQQ8IAAge6BSWQICCCAAAIIEOisAQQQQAABBDwgQKB7YBIZAgIIIIAAAgQ6awABBBBAAAEPCBDoHphEhoAAAggggACBzhpAAAEEEEDAAwIEugcmkSEggAACCCBAoLMGEEAAAQQQ8IAAge6BSWQICCCAAAIIEOisAQQQQAABBDwgQKB7YBIZAgIIIIAAAgQ6awABBBBAAAEPCBDoHphEhoAAAggggACBzhpAAAEEEEDAAwIEugcmkSEggAAC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" alt="logo.png" style="max-width:100%;"></body></html>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1612607277"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1612607277"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/\/en";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1612607277"></script>
+
+    
+  </div>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/introduction/" title="Introduction" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/introduction/">
+          <b>1. </b>Introduction
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/introduction/console/" title="The Console" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/introduction/console/">
+          The Console
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/introduction/script/" title="Scripts" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/introduction/script/">
+          Scripts
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/introduction/vectors/" title="Vectors" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/introduction/vectors/">
+          Vectors
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/introduction/functions/" title="Functions in RStudio" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/introduction/functions/">
+          Functions in RStudio
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/introduction/help/" title="Getting Help" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/introduction/help/">
+          Getting Help
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/introduction/operator/" title="The Assignment Operator" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/introduction/operator/">
+          The Assignment Operator
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/introduction/data_frames/" title="Data Frames" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/introduction/data_frames/">
+          Data Frames
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/introduction/libraries/libraries/" title="Packages" class="dd-item ">
+        <a href="/en/introduction/libraries/libraries/">
+        Packages
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/introduction/loading_data/" title="Loading Data" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/introduction/loading_data/">
+          Loading Data
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/descriptive_statistics/" title="Exploring Data" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/descriptive_statistics/">
+          <b>2. </b>Exploring Data
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/descriptive_statistics/find.data/" title="Where to find data" class="dd-item ">
+        <a href="/en/descriptive_statistics/find.data/">
+        Where to find data
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/descriptive_statistics/explore/" title="Explore your dataset" class="dd-item ">
+        <a href="/en/descriptive_statistics/explore/">
+        Explore your dataset
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/descriptive_statistics/mean.median/" title="The mean and the median" class="dd-item ">
+        <a href="/en/descriptive_statistics/mean.median/">
+        The mean and the median
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/descriptive_statistics/mode/" title="The mode" class="dd-item ">
+        <a href="/en/descriptive_statistics/mode/">
+        The mode
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/descriptive_statistics/dispretion/" title="Measures of dispersion" class="dd-item ">
+        <a href="/en/descriptive_statistics/dispretion/">
+        Measures of dispersion
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/descriptive_statistics/dispretion.factor/" title="Categorical variables" class="dd-item ">
+        <a href="/en/descriptive_statistics/dispretion.factor/">
+        Categorical variables
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/shortcodes-10.21.40/" title="Shortcodes" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/en/shortcodes-10.21.40/">
+          <b>3. </b>Shortcodes
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/shortcodes-10.21.40/attachments/" title="Attachments" class="dd-item ">
+        <a href="/en/shortcodes-10.21.40/attachments/">
+        Attachments
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/shortcodes-10.21.40/button/" title="Button" class="dd-item ">
+        <a href="/en/shortcodes-10.21.40/button/">
+        Button
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/shortcodes-10.21.40/children/" title="Children" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/shortcodes-10.21.40/children/">
+          Children
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/shortcodes-10.21.40/children/children-1/" title="page 1" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/shortcodes-10.21.40/children/children-1/">
+          page 1
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/shortcodes-10.21.40/children/children-1/children-1-1/" title="page 1-1" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/shortcodes-10.21.40/children/children-1/children-1-1/">
+          page 1-1
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/shortcodes-10.21.40/children/children-1/children-1-1/children-1-1-1/" title="page 1-1-1" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/shortcodes-10.21.40/children/children-1/children-1-1/children-1-1-1/">
+          page 1-1-1
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/shortcodes-10.21.40/children/children-1/children-1-1/children-1-1-1/children-1-1-1-1/" title="page 1-1-1-1" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/shortcodes-10.21.40/children/children-1/children-1-1/children-1-1-1/children-1-1-1-1/">
+          page 1-1-1-1
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/shortcodes-10.21.40/children/children-1/children-1-1/children-1-1-1/children-1-1-1-1/children-1-1-1-1-1/" title="page 1-1-1-1-1" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/shortcodes-10.21.40/children/children-1/children-1-1/children-1-1-1/children-1-1-1-1/children-1-1-1-1-1/">
+          page 1-1-1-1-1
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/shortcodes-10.21.40/children/children-2/" title="page 2" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/shortcodes-10.21.40/children/children-2/">
+          page 2
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/shortcodes-10.21.40/children/children-2/test3/" title="page test 3" class="dd-item ">
+        <a href="/en/shortcodes-10.21.40/children/children-2/test3/">
+        page test 3
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/shortcodes-10.21.40/children/children-3/" title="page 3" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/shortcodes-10.21.40/children/children-3/">
+          page 3
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/shortcodes-10.21.40/children/test/" title="page test" class="dd-item ">
+        <a href="/en/shortcodes-10.21.40/children/test/">
+        page test
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/shortcodes-10.21.40/expand/" title="Expand" class="dd-item ">
+        <a href="/en/shortcodes-10.21.40/expand/">
+        Expand
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/shortcodes-10.21.40/mermaid/" title="Mermaid" class="dd-item ">
+        <a href="/en/shortcodes-10.21.40/mermaid/">
+        Mermaid
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/shortcodes-10.21.40/notice/" title="Notice" class="dd-item ">
+        <a href="/en/shortcodes-10.21.40/notice/">
+        Notice
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/shortcodes-10.21.40/siteparam/" title="Site param" class="dd-item active">
+        <a href="/en/shortcodes-10.21.40/siteparam/">
+        Site param
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/clm/" title="The Central Limit Theorem" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/clm/">
+          <b>3. </b>The Central Limit Theorem
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/clm/central_limit_theorem/" title="An illustration" class="dd-item ">
+        <a href="/en/clm/central_limit_theorem/">
+        An illustration
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/bivariate/" title="Bivariate Analysis" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/bivariate/">
+          <b>4. </b>Bivariate Analysis
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/bivariate/ttest/" title="T-test" class="dd-item ">
+        <a href="/en/bivariate/ttest/">
+        T-test
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/bivariate/correlation/" title="Correlation" class="dd-item ">
+        <a href="/en/bivariate/correlation/">
+        Correlation
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/graphs/" title="Visualising relationships" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/graphs/">
+          <b>5. </b>Visualising relationships
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/graphs/ggplot/" title="The ggplot package" class="dd-item ">
+        <a href="/en/graphs/ggplot/">
+        The ggplot package
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/graphs/graphs_categorical/" title="Graphs-categorical variables" class="dd-item ">
+        <a href="/en/graphs/graphs_categorical/">
+        Graphs-categorical variables
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/graphs/graphs_continuous/" title="Graphs-continuous variables" class="dd-item ">
+        <a href="/en/graphs/graphs_continuous/">
+        Graphs-continuous variables
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/graphs/graphs_ordinal/" title="Graphs-ordinal variables" class="dd-item ">
+        <a href="/en/graphs/graphs_ordinal/">
+        Graphs-ordinal variables
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/graphs/faq_ggplot/" title="FAQ" class="dd-item ">
+        <a href="/en/graphs/faq_ggplot/">
+        FAQ
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/regression_analysis/" title="Regression Analysis- The basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/regression_analysis/">
+          <b>6. </b>Regression Analysis- The basics
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/regression_analysis/regression/" title="Introduction to regression analysis" class="dd-item ">
+        <a href="/en/regression_analysis/regression/">
+        Introduction to regression analysis
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/regression_analysis/regression-interpretation/" title="Interpreting the regression output" class="dd-item ">
+        <a href="/en/regression_analysis/regression-interpretation/">
+        Interpreting the regression output
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/regression_analysis/regression-graphs/" title="Visualising the relationship" class="dd-item ">
+        <a href="/en/regression_analysis/regression-graphs/">
+        Visualising the relationship
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/regression_analysis/regression-stargazer/" title="Professional outputs" class="dd-item ">
+        <a href="/en/regression_analysis/regression-stargazer/">
+        Professional outputs
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/multivariate_regression/" title="Multivariate regression analysis" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/multivariate_regression/">
+          <b>7. </b>Multivariate regression analysis
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/multivariate_regression/prepare-data/" title="Prepare your variables" class="dd-item ">
+        <a href="/en/multivariate_regression/prepare-data/">
+        Prepare your variables
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/multivariate_regression/models/" title="The model" class="dd-item ">
+        <a href="/en/multivariate_regression/models/">
+        The model
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/binary_regression/" title="Binary regression analysis" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/binary_regression/">
+          <b>8. </b>Binary regression analysis
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/binary_regression/prepare-data_binary/" title="Prepare your dataset" class="dd-item ">
+        <a href="/en/binary_regression/prepare-data_binary/">
+        Prepare your dataset
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/binary_regression/prepare-dependent_variable/" title="Create your dependent variable" class="dd-item ">
+        <a href="/en/binary_regression/prepare-dependent_variable/">
+        Create your dependent variable
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/binary_regression/models/" title="The logistic regression model" class="dd-item ">
+        <a href="/en/binary_regression/models/">
+        The logistic regression model
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/binary_regression/predicted_probabilities/" title="Predicted probabilities" class="dd-item ">
+        <a href="/en/binary_regression/predicted_probabilities/">
+        Predicted probabilities
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/en/interaction_term/" title="Interaction Terms" class="dd-item
+        
+        
+        
+        ">
+      <a href="/en/interaction_term/">
+          <b>9. </b>Interaction Terms
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/interaction_term/prepare-data_interaction/" title="Prepare your variables" class="dd-item ">
+        <a href="/en/interaction_term/prepare-data_interaction/">
+        Prepare your variables
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/en/interaction_term/prepare-interaction_term/" title="Construct and plot your interaction term" class="dd-item ">
+        <a href="/en/interaction_term/prepare-interaction_term/">
+        Construct and plot your interaction term
+        <i class="fas fa-check read-icon"></i>
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://github.com/matcornic/hugo-theme-learn"><i class='fab fa-fw fa-github'></i> GitHub repo</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="/en/showcase"><i class='fas fa-fw fa-camera'></i> Showcases</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://gohugo.io/"><i class='fas fa-fw fa-bookmark'></i> Hugo Documentation</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="en/credits"><i class='fas fa-fw fa-bullhorn'></i> Credits</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/en/shortcodes-10.21.40/siteparam/" selected>English</option>
+                    
+                  
+              
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="fr" value="/fr/shortcodes-10.21.40/siteparam/">Français</option>
+                    
+                  
+              
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <center>
+    
+    <a class="github-button" href="https://github.com/matcornic/hugo-theme-learn/archive/master.zip" data-icon="octicon-cloud-download" aria-label="Download matcornic/hugo-theme-learn on GitHub">Download</a>
+
+    
+    <a class="github-button" href="https://github.com/matcornic/hugo-theme-learn" data-icon="octicon-star" data-show-count="true" aria-label="Star matcornic/hugo-theme-learn on GitHub">Star</a>
+
+    
+    <a class="github-button" href="https://github.com/matcornic/hugo-theme-learn/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork matcornic/hugo-theme-learn on GitHub">Fork</a>
+
+    <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+</center>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="https://github.com/matcornic/hugo-theme-learn/edit/master/exampleSite/content/shortcodes%2010.21.40/siteparam.en.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/en/'>Introduction to Quantitative Research Methods</a> > <a href='/en/shortcodes-10.21.40/'>Shortcodes</a> > Site param
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents"></nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Site param
+            </h1>
+          
+
+        
+
+
+<p><code>siteparam</code> shortcode is used to help you print values of site params.</p>
+<p>For instance, in this current site, the <code>editURL</code> variable is used in <code>config.toml</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[<span style="color:#a6e22e">params</span>]
+  <span style="color:#a6e22e">editURL</span> = <span style="color:#e6db74">&#34;https://github.com/matcornic/hugo-theme-learn/edit/master/exampleSite/content/&#34;</span>
+</code></pre></div><p>Use the <code>siteparam</code> shortcode to display its value.</p>
+<pre><code>`editURL` Value : {{% siteparam &quot;editURL&quot; %}}
+</code></pre><p>is displayed as</p>
+<p><code>editURL</code> Value : <a href="https://github.com/matcornic/hugo-theme-learn/edit/master/exampleSite/content/">https://github.com/matcornic/hugo-theme-learn/edit/master/exampleSite/content/</a></p>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/en/shortcodes-10.21.40/notice/" title="Notice"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/en/clm/" title="The Central Limit Theorem" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1612607277"></script>
+    <script src="/js/perfect-scrollbar.min.js?1612607277"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1612607277"></script>
+    <script src="/js/jquery.sticky.js?1612607277"></script>
+    <script src="/js/featherlight.min.js?1612607277"></script>
+    <script src="/js/highlight.pack.js?1612607277"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1612607277"></script>
+    <script src="/js/learn.js?1612607277"></script>
+    <script src="/js/hugo-learn.js?1612607277"></script>
+    
+        
+            <script src="/mermaid/mermaid.js?1612607277"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-105947713-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>
+

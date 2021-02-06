@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/en/introduction/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/introduction/console/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/descriptive_statistics/find.data/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/introduction/script/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/descriptive_statistics/explore/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/introduction/vectors/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/introduction/functions/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/descriptive_statistics/mean.median/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/introduction/help/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/introduction/operator/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/introduction/data_frames/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/descriptive_statistics/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/introduction/libraries/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/introduction/loading_data/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/descriptive_statistics/mode/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/descriptive_statistics/dispretion/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/clm/central_limit_theorem/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/descriptive_statistics/dispretion.factor/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/clm/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/bivariate/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/bivariate/ttest/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/graphs/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/regression_analysis/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/graphs/ggplot/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/graphs/graphs_categorical/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/graphs/graphs_continuous/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/graphs/graphs_ordinal/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/regression_analysis/regression/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/graphs/faq_ggplot/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/regression_analysis/regression-interpretation/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/regression_analysis/regression-graphs/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/multivariate_regression/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/regression_analysis/regression-stargazer/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/multivariate_regression/prepare-data/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/multivariate_regression/models/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/binary_regression/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/binary_regression/prepare-data_binary/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/binary_regression/prepare-dependent_variable/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/binary_regression/models/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/interaction_term/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/binary_regression/predicted_probabilities/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/interaction_term/prepare-data_interaction/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/interaction_term/prepare-interaction_term/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/about/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/showcase/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/vitrine/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/showcase/"
+                />
+  </url>
+  
+  <url>
+    <loc>/en/categories/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="/zh/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>/en/bivariate/correlation/</loc>
+  </url>
+  
+  <url>
+    <loc>/en/credits/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/credits/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/credits/"
+                />
+  </url>
+  
+  <url>
+    <loc>/en/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="/zh/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/"
+                />
+  </url>
+  
+  <url>
+    <loc>/en/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="/fr/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="/zh/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/en/tags/"
+                />
+  </url>
+  
+</urlset>

@@ -1,0 +1,76 @@
+---
+title: T-test
+weight: 18 
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>This time we will use a dataset named <code>midwest</code>.</p>
+<p>Download the dataset from SurreyLearn and load it into RStudio. To load our file we use the <code>load()</code> function. Give a name to your dataset using the assigment operator <code>&lt;-</code>.</p>
+<p>Let’s have a look at the dataset. Alternatively, you can have a look at the codebook- that is the document that comes with the dataset. The codebook describes the contents, structure, and layout of a data collection but it also provides a detailed overview of all variables included in the dataset.</p>
+<p>We will explore our dataset, by using the <code>head()</code> and <code>View()</code> functions.</p>
+<p>The <code>head()</code> function shows us the head, the first rows, of our dataset.</p>
+<p>The <code>view()</code> function allows us to see inside the data frames. At the view window you can also sort the dataset by any column simply by clicking on the column.</p>
+<p>Let’s start by examining the <strong>one paired t-test</strong>. That means that we will compare the mean of our sample against a known true value. To be more specific, we will calculate the percent of educated adults in the midwest, against a known value the percent of educated adults nationwide. Our overall aim is to examine whether the mean of educated adults in the midwest is significantly different to the national average. That means it could be higher or smaller.</p>
+<p>According to official statistics, the percentage of college educated adults is <span class="math inline">\(32%\)</span>, our aim is to examine if in the midwest the average of college educated adults is statistically different to <span class="math inline">\(32%\)</span>.</p>
+<p>A boxplot can give us a quick visual assessment of the data, a brief idea about what is going on in our data before we perform the t-test.</p>
+<p>To do so we will use a very useful package in R, called <code>ggplot2</code>.</p>
+<p>We first have to install ggplot2 by using the <code>install.packages("ggplot2")</code> function:</p>
+<pre class="r"><code>plot1 &lt;- ggplot(midwest, aes(percollege)) + 
+        geom_histogram() + theme_classic()
+
+plot1 </code></pre>
+<p><img src="/Bivariate/ttest_files/figure-html/plot1-1.png" width="672" /></p>
+<div id="one-tailed-t-test" class="section level2">
+<h2>One-tailed t-test</h2>
+<p>Our next step is to perform the one-tailed t-test. Taking into consideration the states that are part of the Midwest, we hypothesise that on average the percentage of educated adults will be smaller than the average.</p>
+<pre class="r"><code>t.test(midwest$percollege, mu = 32, alternative = &quot;less&quot;)</code></pre>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  midwest$percollege
+## t = -45.827, df = 436, p-value &lt; 2.2e-16
+## alternative hypothesis: true mean is less than 32
+## 95 percent confidence interval:
+##     -Inf 18.7665
+## sample estimates:
+## mean of x 
+##  18.27274</code></pre>
+<p><strong>Note</strong>: 2.2e-16 is 2.2 x 10-16 which is 0.00000000000000022</p>
+</div>
+<div id="two-tailed-t-test" class="section level2">
+<h2>Two tailed t-test</h2>
+<p>Our next step is to compare the difference between two different states. In other words, our next step is to compare whether the two means, representing two different groups, are statistically different. This is called two sample t-test.</p>
+<p>Before we start, install a package called <code>dplyr</code> and use the <code>library()</code> function to load it in RStudio.</p>
+<div id="create-the-two-groups" class="section level3">
+<h3>Create the two groups</h3>
+<p>We start by creating the two groups:</p>
+<pre class="r"><code>library(dplyr)
+data.frame1 &lt;- midwest %&gt;%
+        filter(state == &quot;IN&quot; | state == &quot;IL&quot;) %&gt;%
+        select(state, percollege)</code></pre>
+<p>We can examine the distribution of the two groups with a box-plot:</p>
+<pre class="r"><code>ggplot(data.frame1, aes(state, percollege)) +
+        geom_boxplot() +
+  labs(title = &quot;Two paired t-test&quot;,
+       y=&quot;Education&quot;,
+       x=&quot;State&quot;) +
+  theme_classic()</code></pre>
+<p><img src="/Bivariate/ttest_files/figure-html/midwest%20boxplot-1.png" width="672" /></p>
+<p>Our next step is to compare the two means:</p>
+<pre class="r"><code>t.test(percollege ~ state, data = data.frame1)</code></pre>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  percollege by state
+## t = 2.4947, df = 191.61, p-value = 0.01345
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  0.4533698 3.8774354
+## sample estimates:
+## mean in group IL mean in group IN 
+##         18.78814         16.62274</code></pre>
+<p>The results of the analysis suggest that the <code>p&lt; 0.05</code> is supporting the alternative hypothesis that the true difference in means is not equal to zero. What that really means is that there is a statistical difference between the two means.</p>
+</div>
+</div>

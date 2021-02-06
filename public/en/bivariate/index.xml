@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bivariate Analysis on Documentation for Hugo Learn Theme</title>
+    <link>/en/bivariate/</link>
+    <description>Recent content in Bivariate Analysis on Documentation for Hugo Learn Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language><atom:link href="/en/bivariate/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>T-test</title>
+      <link>/en/bivariate/ttest/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/bivariate/ttest/</guid>
+      <description>This time we will use a dataset named midwest.
+Download the dataset from SurreyLearn and load it into RStudio. To load our file we use the load() function. Give a name to your dataset using the assigment operator &amp;lt;-.
+Let’s have a look at the dataset. Alternatively, you can have a look at the codebook- that is the document that comes with the dataset. The codebook describes the contents, structure, and layout of a data collection but it also provides a detailed overview of all variables included in the dataset.</description>
+    </item>
+    
+    <item>
+      <title>Correlation</title>
+      <link>/en/bivariate/correlation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/bivariate/correlation/</guid>
+      <description>If we want to examine the relationship between two continuous variables then calculate the correlation coefficient commonly known as Pearson’s r. The correlation coefficient ranges from \(-1\) to \(1\) where \(-1\) indicates a perfect negative relationship between the two variables and \(1\) a perfect positive relationship. We calculate the correlation coefficient by using the cor() function.
+For example, load the EVS_UK dataset. We will examine the relationship between peoples’ attitudes towards EU (v198) and attitudes towards immigration (v185).</description>
+    </item>
+    
+  </channel>
+</rss>

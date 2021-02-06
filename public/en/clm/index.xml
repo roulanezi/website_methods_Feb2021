@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The Central Limit Theorem on Documentation for Hugo Learn Theme</title>
+    <link>/en/clm/</link>
+    <description>Recent content in The Central Limit Theorem on Documentation for Hugo Learn Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language><atom:link href="/en/clm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>An illustration</title>
+      <link>/en/clm/central_limit_theorem/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/clm/central_limit_theorem/</guid>
+      <description>Learning Objectives By the end of this section be able to:
+ Apply the Central Limit Theorem on asample in R, Generate a random sample from a given dataset, Identify if a distribution is skewed or not using a histogram  You now know what the Central Limit Theorem is and why it is so important. You ’ve been recently introduced to RStudio and you are very good at it!</description>
+    </item>
+    
+  </channel>
+</rss>

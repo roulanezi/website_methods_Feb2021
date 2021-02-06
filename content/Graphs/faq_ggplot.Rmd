@@ -1,0 +1,35 @@
+---
+title: "FAQ"
+weight: 23
+---
+
+
+#### Why can't I see my graph?
+
+One common reason why your graph may not be displaying is that you may have not typed the name of your graph and run it.
+
+#### R cannot find the variable I would like to plot.
+
+There are a two common reasons why R might not be able to find your variable. 
+Check that you have spelt the name exactly as it appears in the dataset (remember that you can use the codebook to check variable names and descriptions to do this)
+
+Another possiblity is that you may have not used the `$` to explicitly state which variable you would like R to find.
+
+#### How do I save my plot?
+
+Once you plot your graph in the bottom right panel of R studio you can use the ggsave() function to save your most recent plot. Your code should look something like
+
+```
+library(ggplot2)
+ggsave("the_name_of_your_plot")
+```
+
+
+#### I can't find the plot that I saved.
+
+Whenever you use the `ggsave()` function, your plot will be saved in your working directory. If you are not sure what your working directory is use the `getwd()` function.
+
+
+#### I keep receiving and error when trying to use ggplot. 
+
+Check if you have called ggplot from your library using the function `library(ggplot2)`.

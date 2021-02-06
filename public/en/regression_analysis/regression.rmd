@@ -1,0 +1,96 @@
+---
+title: Introduction to regression analysis 
+weight: 22
+---
+
+As always, start by opening a new script file, give to your file a "_good name_" and save it in our folder (POLXXXX). Remove everything from RStudio's memory and set your working directory
+
+```{r directory, eval=FALSE, message=FALSE, include=FALSE, paged.print=FALSE}
+rm(list=ls())
+setwd("~POLXXXX")
+```
+
+Today we will learn how to produce a regression model, to do so, we will use a dataset produced by Pippa Norris. The dataset is called "DEMOCRACY CROSS-NATIONAL DATA", and you may find it on our module's website on SurreyLearn. 
+
+Download the data in stata format (.dta) of the dataset and the respective codebook in the folder entitled POLXXXX and import the dataset on RStudio.
+
+```{r import stata, include=FALSE}
+library(sjlabelled)
+Democracy<- read_stata("Democracy.dta")
+View(Democracy)
+```
+
+As you see there are almost a thousand variables included in the dataset mesuring social, economic, and political characteristics of 193 nations.
+
+Let's start by exploring our dataset
+
+```{r explore dataset, eval=FALSE}
+head(Democracy)
+```
+
+As you can see there are many variables included in the dataset. We will only use two variables measuring the level of democracy in 1984 and the second one GDP Per Capita during the same year.
+
+Since we are not using the whole dataset we will create a subset of the main dataset. The subset will include only the two varaibles we will use in our analysis. We will name our new dataset "_GDP_Dem_". To do so we use the `subset()` function along with the `c()` function. 
+
+```{r subset, include=FALSE}
+GDP_Dem<- subset(Democracy, select = c("Dem_Gov1984", "GDPPC1984")) # we subset the dataset called "Democracy"
+head(GDP_Dem)
+```
+
+Our new dataset consists of two variables only: Dem_Gov1984 and GDPPC1984.
+
+We may summarise our variables by using the `summary()` function. To save time I will ask RStudio to provide a summary of our dataset since the dataset only consists of the two varaibles we are interested in. You may see that we have a few NA's in the dataset and that they are both continuous variables.
+
+```{r summary, eval=FALSE, include=FALSE}
+summary(GDP_Dem)
+```
+
+### Pearson's r
+
+We will start by calculating Pearson's r to examine the strenght of the association between the two variables. We observe that the correlation coefficient is equal to ca. $0.52$ that indicates a positive and not very strong statistical relationship between the two variables.
+
+```{r correlation}
+cor(GDP_Dem, use="complete.obs") # remember that we have NA's in our dataset
+```
+
+We may also draw a scatterplot to examine this relationship. To plot our scatterplot we will use the `ggplot2` package. 
+
+```{r scatterplot, warning=FALSE}
+library(ggplot2)
+plot.1<-ggplot(GDP_Dem, aes(x=Dem_Gov1984, y=GDPPC1984)) +geom_point(size=3,colour="red") +
+    theme_classic()+
+  labs(x="Democratic Governance", y="GDP Per Capita")
+plot.1
+```
+
+By calculating the correlation coefficient we learned that there is a positive and medium range association between Democracy and GDP Per Capita. The scatterplot helped us visualise this relationship, we observe that there is a positive and linear relationship between the two variables. 
+
+## Bivariate regression analysis
+
+To examine how the one variable affects the other , what changes it triggers, we will run a regression analysis. We will use the `lm()` function.
+
+The two main arguments of the `lm()` function are outlined below:
+
+
+Argument   | Description
+-------|-------------------
+**formula** | A mathematical description of the model, y ~ x<sub>1</sub>+x<sub>2</sub>+x<sub>3</sub>+... or DV~IV<sub>1</sub>+IV<sub>2</sub>+IV<sub>3</sub>
+**data** | The name of the dataset we would like to use, the dataset that contains the variables we are interested in.
+
+
+```{r model}
+model.1 <- lm(Dem_Gov1984~GDPPC1984, data=GDP_Dem)
+```
+
+The `lm()` function calculated the relationship between Democracy and GDP Per Capita, in RStudio language our formula is an object and we can give it a name. We named our model `model.1`. By giving a name to an object we can easily calculate further quantities and plot our results. 
+
+Let's start by examing the outcome of the regression analysis. We can see how our model looks like by using the `summary()` function. 
+
+```{r}
+summary(model.1)
+```
+**Note:** To disable scientific notation in R, in other words to display regular numbers instead of using the e+10-like notation, run the function below to disable it. 
+`options(scipen = 999)`
+
+
+

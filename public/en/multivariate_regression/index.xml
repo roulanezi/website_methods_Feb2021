@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Multivariate regression analysis on Documentation for Hugo Learn Theme</title>
+    <link>/en/multivariate_regression/</link>
+    <description>Recent content in Multivariate regression analysis on Documentation for Hugo Learn Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language><atom:link href="/en/multivariate_regression/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Prepare your variables</title>
+      <link>/en/multivariate_regression/prepare-data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/multivariate_regression/prepare-data/</guid>
+      <description>As always, start by opening a new script file, give your file a “good name” and save it in our folder (POL2045). Remove everything from RStudio’s memory and set your working directory
+rm(list=ls()) setwd(&amp;quot;~POLXXXX&amp;quot;) # Remember XXXXis the code of your module The dplyr package Although many data manipulation function exist in basic R sometimes it is easier to use packages build for the sole purpose of making data manipulation easier.</description>
+    </item>
+    
+    <item>
+      <title>The model</title>
+      <link>/en/multivariate_regression/models/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/multivariate_regression/models/</guid>
+      <description>We are now ready to conduct our analysis. We will use the lm() function.
+library(lme4) model.1&amp;lt;-lm(immi.jobs~ born.country+respect.inst+country.ancestry+speak.lang+share.cultr+left_right+education+gender+age,data=sub.sample) summary(model.1) ## ## Call: ## lm(formula = immi.jobs ~ born.country + respect.inst + country.ancestry + ## speak.lang + share.cultr + left_right + education + gender + ## age, data = sub.sample) ## ## Residuals: ## Min 1Q Median 3Q Max ## -6.1341 -1.6810 -0.1593 1.6917 7.8835 ## ## Coefficients: ## Estimate Std.</description>
+    </item>
+    
+  </channel>
+</rss>

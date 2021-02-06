@@ -1,0 +1,72 @@
+---
+title: Prepare your variables
+weight: 33
+---
+
+
+For this section we will use the same model as for the multivariate regression analysis. Our dependent variable is attitudes towards immigration `immi.jobs`.
+
+Let's upload our dataset
+
+```{r data, message=FALSE, warning=FALSE}
+library(sjlabelled)
+EVS <- read_stata("ZA7500_v2-0-0.dta")
+```
+
+Our next step is to keep only the variables we are interesting in: 
+
+```{r select, message=FALSE, warning=FALSE, include=FALSE}
+library(dplyr)
+select(EVS, v102, v185, v189,v190, v191, v192, v193, v225,v226,v243_edulvlb,country,v175_cs,v275c_N1)
+```
+
+Since we are only interested in Germany we should exclude all other countries from the analysis:
+
+
+```{r subsample}
+library(dplyr)
+EVS.Germany<-EVS %>% filter(country == 276) 
+table(EVS.Germany$country)
+```
+
+Let's exclude the missing cases:
+
+```{r missing cases}
+EVS.Germany[EVS.Germany <=-1] <- NA
+EVS.Germany[EVS.Germany <=-2] <- NA
+```
+
+Our next step is to give meaningful names to our variables while we are arrange the order of the values (if and when necessary):
+
+```{r , message=FALSE, warning=FALSE}
+EVS.Germany<-EVS.Germany %>% mutate(immi.jobs=(max(v185,na.rm=TRUE)-(v185)))
+EVS.Germany<-EVS.Germany %>% mutate(born.country=(max(v189,na.rm=TRUE)-(v189)))
+EVS.Germany<-EVS.Germany %>% mutate(respect.inst=(max(v190,na.rm=TRUE)-(v190)))
+EVS.Germany<-EVS.Germany %>% mutate(country.ancestry=(max(v191,na.rm=TRUE)-(v191)))
+EVS.Germany<-EVS.Germany %>% mutate(speak.lang=(max(v192,na.rm=TRUE)-(v192)))
+EVS.Germany<-EVS.Germany %>% mutate(share.cultr=(max(v193,na.rm=TRUE)-(v193)))
+EVS.Germany<-EVS.Germany %>% rename(education=v243_edulvlb)
+EVS.Germany<-EVS.Germany %>% rename(left_right=v102)
+EVS.Germany<-EVS.Germany %>% rename(region=v275c_N1)
+```
+
+Next step is to create the variable measuring whether the respondent lived in Eastern or Western Germany. You may consult the Codebook to identify the 5 regions that used to belong to Eastern Germany. 
+
+```{r east-west}
+table(EVS.Germany$region)
+EVS.Germany$east_west <- NA
+EVS.Germany$east_west[EVS.Germany$region==27604] <- 1
+EVS.Germany$east_west[EVS.Germany$region==27608] <- 1
+EVS.Germany$east_west[EVS.Germany$region==27613] <- 1 
+EVS.Germany$east_west[EVS.Germany$region==27614] <- 1
+EVS.Germany$east_west[EVS.Germany$region==27616] <- 1 
+EVS.Germany$east_west[EVS.Germany$region==27603] <- 0
+EVS.Germany$east_west[EVS.Germany$region==27607] <- 0
+EVS.Germany$east_west[EVS.Germany$region==27609] <- 0
+EVS.Germany$east_west[EVS.Germany$region==27610] <- 0
+EVS.Germany$east_west[EVS.Germany$region==27611] <- 0
+EVS.Germany$east_west[EVS.Germany$region==27612] <- 0
+EVS.Germany$east_west[EVS.Germany$region==27615] <- 0
+table(EVS.Germany$east_west)
+```    
+

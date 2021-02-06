@@ -1,0 +1,45 @@
+---
+title: The logistic regression model
+weight: 31
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="logistic-regression-model" class="section level2">
+<h2>Logistic Regression Model</h2>
+<p>We will use the generalized linear model function <code>glm()</code> to estimate a logistic regression-remember that we have a dummy dependent variable. The function is very similar to the <code>lm()</code> function- the only difference is that there is an additional argument called <code>family()</code>. The <code>family()</code> function will tell R that we want to estimate a logistic regression.</p>
+<p>Let’s see it in practice, all we have to do is to include the following line in the <code>glm()</code> function:</p>
+<pre><code>family = binomial(link = &quot;logit&quot;) argument</code></pre>
+<pre class="r"><code>logit.model&lt;-glm(incumbent~ sociotropic_pros+egocentric_retro+left_right, data=eco_voting,family = binomial(link = &quot;logit&quot;))
+summary(logit.model)</code></pre>
+<pre><code>## 
+## Call:
+## glm(formula = incumbent ~ sociotropic_pros + egocentric_retro + 
+##     left_right, family = binomial(link = &quot;logit&quot;), data = eco_voting)
+## 
+## Deviance Residuals: 
+##     Min       1Q   Median       3Q      Max  
+## -2.7153  -0.7594  -0.3541   0.7221   2.9429  
+## 
+## Coefficients:
+##                  Estimate Std. Error z value Pr(&gt;|z|)    
+## (Intercept)      -5.88946    0.49714 -11.847  &lt; 2e-16 ***
+## sociotropic_pros  0.29030    0.10063   2.885  0.00392 ** 
+## egocentric_retro  0.23379    0.10793   2.166  0.03030 *  
+## left_right        0.79782    0.06612  12.067  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## (Dispersion parameter for binomial family taken to be 1)
+## 
+##     Null deviance: 1042.32  on 793  degrees of freedom
+## Residual deviance:  742.53  on 790  degrees of freedom
+##   (479 observations deleted due to missingness)
+## AIC: 750.53
+## 
+## Number of Fisher Scoring iterations: 5</code></pre>
+<p>Interpreting the results of a logistic regression model is not the same as the interpretation of the linear model. Remember that for the linear model the coefficient describe the effect of a unit change (increase or decrease) in X on Y.</p>
+<p>For the logistic regression the interpretation of the coefficient is: a one unit change (increase or decrease) in X is associated with a <span class="math inline">\(\hat{\beta}\)</span> change in the log-odds of the dependent variable (Y), holding all other variables constant.</p>
+<p>For example, the coefficient describing perceptions about the economy <code>sociotropic_pros</code> is equal to <span class="math inline">\(0.047\)</span>, implying that the log-odds of voting for the party in government are <span class="math inline">\(0.047\)</span> higher when the respondent believe that the economy is doing well, holding all other variables constant.</p>
+</div>

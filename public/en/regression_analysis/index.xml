@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Regression Analysis- The basics on Documentation for Hugo Learn Theme</title>
+    <link>/en/regression_analysis/</link>
+    <description>Recent content in Regression Analysis- The basics on Documentation for Hugo Learn Theme</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language><atom:link href="/en/regression_analysis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction to regression analysis</title>
+      <link>/en/regression_analysis/regression/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/regression_analysis/regression/</guid>
+      <description>As always, start by opening a new script file, give to your file a “good name” and save it in our folder (POLXXXX). Remove everything from RStudio’s memory and set your working directory
+Today we will learn how to produce a regression model, to do so, we will use a dataset produced by Pippa Norris. The dataset is called “DEMOCRACY CROSS-NATIONAL DATA”, and you may find it on our module’s website on SurreyLearn.</description>
+    </item>
+    
+    <item>
+      <title>Interpreting the regression output</title>
+      <link>/en/regression_analysis/regression-interpretation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/regression_analysis/regression-interpretation/</guid>
+      <description>Let’s start by having a look at the formula:
+lm(formula = Dem_Gov1984 ~ GDPPC1984, data = GDP_Dem)  Dem_Gov1984 : is our dependent variable  GDPPC1984  : is our independent variable
+Residuals: ## Min 1Q Median 3Q Max ## -104.470 -16.507 -6.817 16.879 53.869   Residuals : The difference between the observed values and the predicted values of GDPPC1984.
+Coefficients: Estimate Std. Error t value Pr(&amp;gt;|t|) (Intercept) 1.</description>
+    </item>
+    
+    <item>
+      <title>Visualising the relationship</title>
+      <link>/en/regression_analysis/regression-graphs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/regression_analysis/regression-graphs/</guid>
+      <description>Let’s plot the elationship between the two variables, dependent and independent, but this time we will include the regression line.
+plot.2&amp;lt;-ggplot(GDP_Dem, aes(x=GDPPC1984, y=Dem_Gov1984)) +geom_point(size=3) + stat_smooth(method = &amp;quot;lm&amp;quot;, col = &amp;quot;red&amp;quot;)+ theme_classic()+ scale_x_continuous(breaks = seq(0, 75000, by = 5000))+ scale_y_continuous(breaks = seq(0, 200, by = 10))+ labs(x=&amp;quot;Democratic Governance&amp;quot;, y=&amp;quot;GDP Per Capita&amp;quot;) plot.2 The graph replicates the table, when our independent variable is equal to zero, then the starting point of the line (the Y axis) is predicted to be approximately 20, the same as in our table (19.</description>
+    </item>
+    
+    <item>
+      <title>Professional outputs</title>
+      <link>/en/regression_analysis/regression-stargazer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/en/regression_analysis/regression-stargazer/</guid>
+      <description>library(ggplot2) library(sjlabelled) Democracy &amp;lt;- read_stata(&amp;quot;Democracy.dta&amp;quot;) GDP_Dem&amp;lt;- subset(Democracy, select = c(&amp;quot;Dem_Gov1984&amp;quot;, &amp;quot;GDPPC1984&amp;quot;)) # we subset the dataset called &amp;quot;Democracy&amp;quot; head(GDP_Dem) model.1 &amp;lt;- lm(Dem_Gov1984~GDPPC1984, data=GDP_Dem) summary(model.1) R can make complicated things easy and the package below will save you a lot of time. In your assignments you should have tables similar to the ones you see in official reports and journal publications. The stargazer package will allow to do this without having to update your table multiple times.</description>
+    </item>
+    
+  </channel>
+</rss>

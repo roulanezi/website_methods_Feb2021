@@ -1,0 +1,44 @@
+---
+title: Predicted probabilities
+weight: 32
+---
+```{r, include=FALSE}
+load("bes.RData")
+library(dplyr)
+eco_voting<-bes %>%select(b02,Age,edlevel,e01,l01,l02,l03,l04,p01)
+View(eco_voting)
+eco_voting[eco_voting <=-1] <- NA
+eco_voting[eco_voting <=-2] <- NA
+eco_voting<-eco_voting %>% mutate(incumbent=case_when(b02==2~1, b02==1~0, b02>=3~0)) 
+eco_voting<-eco_voting %>% rename(left_right=e01, egocentric_retro=l01,egocentric_pros=l02,sociotropic_pros=l03,sociotropic_retro=l04,brexit=p01)
+table(eco_voting$b02)
+table(eco_voting$incumbent)
+logit.model<-glm(incumbent~ sociotropic_pros+egocentric_retro+left_right, data=eco_voting,family = binomial(link = "logit"))
+summary(logit.model)
+```
+
+## Predicted probabilities
+
+As you may have already realised, log-odds are not straight-forward. This is why we use the `predict()` function which give us predictions for Y, the dependent variable. 
+
+```{r}
+probabilities<-predict(logit.model,type = "response")
+```
+
+
+## The effects package
+
+The final section include's the use of the `effects` package developed by Fox, et al. The `effects` package creates plots for various statistical models. In this example I will show you how it works with a logistic model- but it works with linear models, mixed effects models and many other.  
+
+First you have to install the `effects` package. The easiest way to visualise your model is by using the `allEffects()` function in combination with the `plot()` function. 
+
+```{r message=FALSE, warning=FALSE}
+library(effects)
+plot(allEffects(logit.model))
+```
+
+**References**
+
+Fox, J. (2003) Effect displays in R for generalised linear models. Journal of Statistical Software 8:15, 1–27, http://www.jstatsoft.org/v08/i15/.
+
+
