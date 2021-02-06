@@ -192,6 +192,14 @@ summary {
 </div>
 
 
+<pre class="r"><code>library(ggplot2)
+library(sjlabelled)
+Democracy &lt;- read_stata(&quot;Democracy.dta&quot;)
+
+GDP_Dem&lt;- subset(Democracy, select = c(&quot;Dem_Gov1984&quot;, &quot;GDPPC1984&quot;)) # we subset the dataset called &quot;Democracy&quot;
+head(GDP_Dem)
+model.1 &lt;- lm(Dem_Gov1984~GDPPC1984, data=GDP_Dem)
+summary(model.1)</code></pre>
 <p>R can make complicated things easy and the package below will save you a lot of time. In your assignments you should have tables similar to the ones you see in official reports and journal publications. The <code>stargazer</code> package will allow to do this without having to update your table multiple times.</p>
 <pre class="r"><code>library(stargazer)
 stargazer(model.1,
