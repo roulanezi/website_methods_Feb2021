@@ -1,0 +1,25 @@
+---
+chapter: true
+pre: <b>1. </b>
+title: Introduction
+weight: 1
+---
+
+# Basic Steps
+
+
+Install R and RStudio on your computer by visiting the [Surrey App Store](https://appstore.surrey.ac.uk/login) and logging in using your university account details. You may find additional information on how to install R and RStudio on your personal computer on SurreyLearn.
+
+
+When you start RStudio for the first time you will see three panes:
+
+
+![The above image shows the RStudio launch interface](RStudio1.PNG)
+
+Now let's see what each one these windows is doing. You can type some code in the Console window and when you press **ENTER** the software will run (execute) that code. Typically, you will see some output in the Console, as the results from your analysis, but sometimes you might also get a warning message or an error message. Don't worry if you get an error message <span style="color:red"> **(typically they appear in red colour)** </span>, nothing will happen! 
+
+
+
+
+
+

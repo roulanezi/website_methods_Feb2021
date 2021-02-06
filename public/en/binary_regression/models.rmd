@@ -1,0 +1,44 @@
+---
+title: The logistic regression model
+weight: 31
+---
+```{r, include=FALSE}
+load("bes.RData")
+library(dplyr)
+eco_voting<-bes %>%select(b02,Age,edlevel,e01,l01,l02,l03,l04,p01)
+View(eco_voting)
+eco_voting[eco_voting <=-1] <- NA
+eco_voting[eco_voting <=-2] <- NA
+eco_voting<-eco_voting %>% mutate(incumbent=case_when(b02==2~1, b02==1~0, b02>=3~0)) 
+eco_voting<-eco_voting %>% rename(left_right=e01, egocentric_retro=l01,egocentric_pros=l02,sociotropic_pros=l03,sociotropic_retro=l04,brexit=p01)
+table(eco_voting$b02)
+table(eco_voting$incumbent)
+```
+
+
+## Logistic Regression Model
+
+We will use the generalized linear model function `glm()` to estimate a logistic regression-remember that we have a dummy dependent variable. The function is very similar to the `lm()` function- the only difference is that there is an additional argument called `family()`. The `family()` function will tell R that we want to estimate a logistic regression. 
+
+Let's see it in practice, all we have to do is to include the following line in the `glm()` function:
+
+```
+family = binomial(link = "logit") argument
+```
+
+
+```{r  model.linear}
+logit.model<-glm(incumbent~ sociotropic_pros+egocentric_retro+left_right, data=eco_voting,family = binomial(link = "logit"))
+summary(logit.model)
+```
+
+
+Interpreting the results of a logistic regression model is not the same as the interpretation of the linear model. Remember that for the linear model the coefficient describe the effect of a unit change (increase or decrease) in X on Y.
+
+
+For the logistic regression the interpretation of the coefficient is: a one unit change (increase or decrease) in X is associated with a $\hat{\beta}$ change in the log-odds of the dependent variable (Y), holding all other variables constant. 
+
+For example, the coefficient describing  perceptions about the economy `sociotropic_pros` is equal to $0.047$, implying that the log-odds of voting for the party in government are $0.047$ higher when the respondent believe that the economy is doing well, holding all other variables constant.
+
+
+

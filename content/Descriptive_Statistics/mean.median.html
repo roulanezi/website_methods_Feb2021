@@ -1,0 +1,22 @@
+---
+title: The mean and the median
+weight: 4
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>The arithmetic mean, in other words the average, is the most commonly used measure of central tendency. Even without realising it we often calculate the mean, for example we use the mean to calculate how much energy we are using per month.</p>
+<p>We all know how to calculate the mean, by diving the sum of all observations by the total number of observations. Let’s try to do that in R. First, we need to calculate the sum of all observations. We can do that in R by using the <code>sum()</code> function:</p>
+<pre class="r"><code>load(&quot;EVS_UK.RData&quot;)
+sum(EVS_UK$v198,na.rm=TRUE)  # na.rm deletes all cases with missing values before calculating the variance</code></pre>
+<pre><code>## [1] 11643</code></pre>
+<p>the next step will be to divide by the total number of all observation. We do so by using the <code>length()</code> function:</p>
+<pre class="r"><code>length(EVS_UK$v198)</code></pre>
+<pre><code>## [1] 1788</code></pre>
+<p>Since our overall goal is to calculate the mean we could do so by dividing the sum of all observations by the total number of observations:</p>
+<pre class="r"><code>sum(EVS_UK$v198,na.rm=TRUE) / length(EVS_UK$v198)</code></pre>
+<pre><code>## [1] 6.511745</code></pre>
+<p>As you may already know by now R has some build-in (base) functions that are there to make everything easier for us. In this case, when you want to calculate the mean you simply use the <code>mean()</code> function. Additionally, you may calculate the median by using the <code>median()</code> function.</p>
+<p>{{% notice note Additional training%}} Calculate the mean and the median for the variables describing attitudes towards immigration using the function described above.
+{{% /notice %}}</p>

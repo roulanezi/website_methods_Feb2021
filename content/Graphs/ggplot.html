@@ -1,0 +1,57 @@
+---
+title: The ggplot package
+weight: 21
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="learning-objectives" class="section level4">
+<h4>Learning Objectives</h4>
+<p>By the end of this section you will:</p>
+<ul>
+<li>Learn the basic concepts associated the grammar of graphics such as aesthetic mapping.</li>
+<li>Be introduced to some initial steps to preparing your data for plotting graphs.</li>
+</ul>
+</div>
+<div id="the-ggplot-package" class="section level2">
+<h2>The ggplot package</h2>
+<p>The most common data visualisation package in RStudio is ggplot. We may install ggplot by using the <code>install.packages()</code> function. We write <code>install.packages("ggplot2")</code> and we call the package by using the <code>library()</code> function.</p>
+<pre class="r"><code>library(ggplot2)</code></pre>
+<p>First of all, as most packages in RStudio the ggplot team created a cheatsheet. You may find it here
+<a href="https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf">ggplot Cheatsheet</a></p>
+<p>If we call the <code>ggplot()</code> function then we will create an empty canvas.
+We start by loading our dataset entitled <strong>EVS_UK.RData</strong></p>
+<pre class="r"><code>load(&quot;EVS_UK.RData&quot;)
+ggplot(EVS_UK) # this created an empty plot</code></pre>
+<p><img src="/Graphs/ggplot_files/figure-html/emptyplot-1.png" width="672" /></p>
+<p>the next step is to specify the variables we would like to use, as you know we cannot plot the whole dataset!</p>
+<p>To specify which variables we would like to plot we have to include in the function the so called <strong>aes()</strong> section that specifies the <strong>aesthetic mappings</strong>, in other words, this section specifies how to map our variables.</p>
+<p>Let’s start by creating a bar to see how the <strong>aes</strong> section works - you already know how to do that but this time we will give a name to our plot.</p>
+<p>In our analysis we will use two socio-demographics variables gender and education. Gender is a dichotomous variable describing gender. Education is an ordinal variable with three levels - low, medium, and high.</p>
+<p>In the dataset the code of the variable describing gender is <code>EVS_UK$v225</code>, and the name of the variable describing education is <code>EVS_UK$v243_r_weight</code>.</p>
+<p>Before we proceed, we will give meaningful names to our variable swhile at the same time we will make sure that our new variables are categorical (<em>factor</em>) variable for gender- as it should be. We can easily do that by using the assignment operator <span class="math inline">\(&lt;-\)</span> and the <code>as.factor</code> function.</p>
+<pre class="r"><code>EVS_UK$gender&lt;- factor(EVS_UK$v225,
+               levels = c(1,2),
+               labels = c(&quot;Men&quot;, &quot;Women&quot;))
+
+table(EVS_UK$gender)</code></pre>
+<pre><code>## 
+##   Men Women 
+##   792   996</code></pre>
+<p><strong>Note</strong>: at the left side of the equation I specified the dataset at which my new variable belongs to - that is <code>EVS_UK</code>.</p>
+<p>We will do the same for the variable describing education and is currently named <code>v243_r_weight</code>.</p>
+<p>Recall, Lecture 2 (Descriptive Statistics) during the lab session we used the same function to rename <code>v243_r_weight</code>to <code>education</code>.</p>
+<p>In this example education is an ordinal variable with three levels- low, medium, high.</p>
+<pre class="r"><code>EVS_UK$education &lt;- ordered(EVS_UK$v243_r_weight, #here you specify that this is ordered variable
+levels = c(1,2,3), # here you specify the values of the variable
+labels = c(&quot;Low&quot;, &quot;Medium&quot;, &quot;High&quot;))  #here you specify the names of the values</code></pre>
+</div>
+<div id="recap" class="section level1">
+<h1>Recap</h1>
+<ul>
+<li>ggplot2 refers to the grammar of graphic and is the main package in the ‘tidyverse’ for plotting data.</li>
+<li>Aesthetic mapping or <code>aes()</code> is the function used tell ggplot2 which variables to use in our plot.</li>
+<li>Before we plot our data we need to ensure that our labels are meaningful.</li>
+</ul>
+</div>
