@@ -3,9 +3,15 @@ title: Predicted probabilities
 weight: 32
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
+<div id="learning-objectives" class="section level4">
+<h4>Learning Objectives</h4>
+<p>By the end of this section you should be able to:</p>
+<p>{{% notice info %}}
+* use the effects package to visualise predicted probabilities.
+{{% /notice %}}</p>
+</div>
 <div id="predicted-probabilities" class="section level2">
 <h2>Predicted probabilities</h2>
 <p>As you may have already realised, log-odds are not straight-forward. This is why we use the <code>predict()</code> function which give us predictions for Y, the dependent variable.</p>
@@ -20,4 +26,10 @@ plot(allEffects(logit.model))</code></pre>
 <p><img src="/Binary_regression/predicted_probabilities_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p><strong>References</strong></p>
 <p>Fox, J. (2003) Effect displays in R for generalised linear models. Journal of Statistical Software 8:15, 1–27, <a href="http://www.jstatsoft.org/v08/i15/" class="uri">http://www.jstatsoft.org/v08/i15/</a>.</p>
+</div>
+<div id="recap" class="section level1">
+<h1>Recap</h1>
+<p>{{% notice info %}}
+* You can use the <code>allEffects()</code> function as well as <code>plot()</code> function to display logistic regression model data
+{{% /notice %}}</p>
 </div>

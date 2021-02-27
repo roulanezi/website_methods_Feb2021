@@ -3,9 +3,14 @@ title: Prepare your dataset
 weight: 29
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
+<div id="learning-objectives" class="section level4">
+<h4>Learning Objectives</h4>
+<p>By the end of this section you should be able to:</p>
+<p>{{% notice info %}}
+* use the <code>dplyr</code> package to clean and recode your dataset.
+{{% /notice %}}</p>
 <p>For this section we will be using data from the ‘British Election Study’ survey to investigate the effect of perceptions about the economy on party choice. This is part of a broader research examining the effect of political issues on party choice and especialy on the effect of the economy on the party in government.</p>
 <p><a href="https://s3.amazonaws.com/academia.edu.documents/6179351/s4._economic_voting_an_introduction__lewis-beck_paldam_2000_.pdf?response-content-disposition=inline%3B%20filename%3DEconomic_Voting_An_Introduction.pdf&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWOWYYGZ2Y53UL3A%2F20191129%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20191129T110058Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=8a2e30564a1772df23b48cce3f6f246e4582a99d72fb75b66269b96060ff59bd"> Lewis-Beck, Michael S., and Martin Paldam. “Economic voting: an introduction.” Electoral studies 19.2-3 (2000): 113-121.</a></p>
 <pre class="r"><code>load(&quot;bes.RData&quot;)</code></pre>
@@ -52,6 +57,7 @@ weight: 29
 </tr>
 </tbody>
 </table>
+</div>
 <div id="create-a-subset" class="section level2">
 <h2>Create a subset</h2>
 <p>Our next step is to create a sub-set including only the variables we will include in our analysis</p>
@@ -72,4 +78,10 @@ eco_voting[eco_voting &lt;=-2] &lt;- NA</code></pre>
 <pre class="r"><code>eco_voting&lt;-eco_voting %&gt;% rename(left_right=e01, egocentric_retro=l01,egocentric_pros=l02,sociotropic_pros=l03,sociotropic_retro=l04,brexit=p01)
 
 View(eco_voting)</code></pre>
+</div>
+<div id="recap" class="section level1">
+<h1>Recap</h1>
+<p>{{% notice info %}}
+* The dplyr package offers a number of functions to clean and reshape your dataset including; <code>rename()</code> and <code>select()</code>.
+{{% /notice %}}</p>
 </div>

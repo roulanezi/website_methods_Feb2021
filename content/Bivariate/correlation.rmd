@@ -2,6 +2,16 @@
 title: Correlation
 ---
 
+#### Learning Objectives
+
+By the end of this section you should be able to:
+
+{{% notice info %}}
+* Measure correlations between variables in R.
+* Visualise relationships using the correlogram package.
+{{% /notice %}}
+
+
 If we want to examine the relationship between two continuous variables then calculate the correlation coefficient commonly known as Pearson's r. The correlation coefficient ranges from $-1$ to $1$ where $-1$ indicates a perfect negative relationship between the two variables and $1$ a perfect positive relationship. 
 We calculate the correlation coefficient by using the `cor()` function. 
 
@@ -28,18 +38,6 @@ View(euimmi.sample)
 ```
 
 
-let's confirm that all of our variables are numeric i.e. continuous
-```{r}
-class(EVS_UK$v198)
-class(EVS_UK$v185)
-class(EVS_UK$v186)
-class(EVS_UK$v187)
-EVS_UK$v198<-as.numeric(EVS_UK$v198)
-EVS_UK$v185<-as.numeric(EVS_UK$v185)
-EVS_UK$v186<-as.numeric(EVS_UK$v186)
-EVS_UK$v187<-as.numeric(EVS_UK$v187)
-```
-
 ### Visualising correlations
 
 Don't forget to install the package we will use by using the `install.packages()` function:
@@ -50,7 +48,14 @@ library(corrgram)
 corrgram(euimmi.sample, order=NULL, lower.panel=panel.shade,
   upper.panel=NULL, text.panel=panel.txt,
   main="EU enlargement and attitudes \n towards immigration")
+
 ```
 
 
+# Recap
+
+{{% notice info %}}
+* You can measure the correlation between two variables using the ` cor()` function
+* If you can visualise your correlation you can use the `corrgram` package
+{{% /notice %}}
 

@@ -3,6 +3,16 @@ title: T-test
 weight: 18 
 ---
 
+#### Learning Objectives
+
+By the end of this section you should be able to:
+
+{{% notice info %}}
+* run a T-test in R using base R. 
+* identify your p-value from a T-test in R.
+{{% /notice %}}
+
+
 This time we will use a dataset named `midwest`. 
 
 Download the dataset from SurreyLearn and load it into RStudio. To load our file we use the `load()` function. Give a name to your dataset using the assigment operator `<-`. 
@@ -96,4 +106,8 @@ t.test(percollege ~ state, data = data.frame1)
 
 The results of the analysis suggest that the `p< 0.05` is supporting the alternative hypothesis that the true difference in means is not equal to zero. What that really means is that there is a statistical difference between the two means. 
 
+# Recap
 
+{{% notice info %}}
+* You can run a T-test in R to and compare two means using the `t.test()` function in base R.
+{{% /notice %}}

@@ -3,9 +3,15 @@ title: T-test
 weight: 18 
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
+<div id="learning-objectives" class="section level4">
+<h4>Learning Objectives</h4>
+<p>By the end of this section you should be able to:</p>
+<p>{{% notice info %}}
+* run a T-test in R using base R.
+* identify your p-value from a T-test in R.
+{{% /notice %}}</p>
 <p>This time we will use a dataset named <code>midwest</code>.</p>
 <p>Download the dataset from SurreyLearn and load it into RStudio. To load our file we use the <code>load()</code> function. Give a name to your dataset using the assigment operator <code>&lt;-</code>.</p>
 <p>Let’s have a look at the dataset. Alternatively, you can have a look at the codebook- that is the document that comes with the dataset. The codebook describes the contents, structure, and layout of a data collection but it also provides a detailed overview of all variables included in the dataset.</p>
@@ -22,6 +28,7 @@ weight: 18
 
 plot1 </code></pre>
 <p><img src="/Bivariate/ttest_files/figure-html/plot1-1.png" width="672" /></p>
+</div>
 <div id="one-tailed-t-test" class="section level2">
 <h2>One-tailed t-test</h2>
 <p>Our next step is to perform the one-tailed t-test. Taking into consideration the states that are part of the Midwest, we hypothesise that on average the percentage of educated adults will be smaller than the average.</p>
@@ -73,4 +80,10 @@ data.frame1 &lt;- midwest %&gt;%
 ##         18.78814         16.62274</code></pre>
 <p>The results of the analysis suggest that the <code>p&lt; 0.05</code> is supporting the alternative hypothesis that the true difference in means is not equal to zero. What that really means is that there is a statistical difference between the two means.</p>
 </div>
+</div>
+<div id="recap" class="section level1">
+<h1>Recap</h1>
+<p>{{% notice info %}}
+* You can run a T-test in R to and compare two means using the <code>t.test()</code> function in base R.
+{{% /notice %}}</p>
 </div>

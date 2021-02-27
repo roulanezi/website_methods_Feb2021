@@ -16,6 +16,15 @@ table(eco_voting$incumbent)
 ```
 
 
+## Learning Objectives
+
+At the end of this section you should be able to:
+
+{{% notice info %}}
+* used a generalised linear model to estimate a logistic regression in R 
+{{% /notice %}}
+
+
 ## Logistic Regression Model
 
 We will use the generalized linear model function `glm()` to estimate a logistic regression-remember that we have a dummy dependent variable. The function is very similar to the `lm()` function- the only difference is that there is an additional argument called `family()`. The `family()` function will tell R that we want to estimate a logistic regression. 
@@ -41,4 +50,8 @@ For the logistic regression the interpretation of the coefficient is: a one unit
 For example, the coefficient describing  perceptions about the economy `sociotropic_pros` is equal to $0.047$, implying that the log-odds of voting for the party in government are $0.047$ higher when the respondent believe that the economy is doing well, holding all other variables constant.
 
 
+# Recap
 
+{{% notice info %}}
+* You can develop a generalised linear model in R using `glm()` function. 
+{{% /notice %}}

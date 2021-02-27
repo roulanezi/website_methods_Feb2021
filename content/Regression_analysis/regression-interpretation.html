@@ -3,9 +3,15 @@ title: Interpreting the regression output
 weight: 23
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
+<div id="learning-objectives" class="section level4">
+<h4>Learning Objectives</h4>
+<p>By the end of this section you should be able to:</p>
+<p>{{% notice info %}}
+* Interpret the output of your linear regression model in R.
+* Identify the values of a given linear model’s residuals, coefficients and intercept in R.
+{{% /notice %}}</p>
 <p>Let’s start by having a look at the formula:</p>
 <pre><code>lm(formula = Dem_Gov1984 ~ GDPPC1984, data = GDP_Dem)</code></pre>
 <p>
@@ -37,3 +43,4 @@ GDPPC1984   1.519e-03  2.522e-04   6.024 2.99e-08 ***</code></pre>
 <pre><code>R-squared:  0.2702, Adjusted R-squared:  0.2628 </code></pre>
 <p>The <span style="color:red;"> R-squared </span> and adjusted <span style="color:red;"> R-squared</span> tell us how much of the variance in our model is accounted for by the independent variable.</p>
 <p>The <span style="color:red;"> adjusted R-squared </span> is a modified version of R-squared that has been adjusted for the number of predictors in the model.</p>
+</div>

@@ -3,9 +3,15 @@ title: The logistic regression model
 weight: 31
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
+<div id="learning-objectives" class="section level2">
+<h2>Learning Objectives</h2>
+<p>At the end of this section you should be able to:</p>
+<p>{{% notice info %}}
+* used a generalised linear model to estimate a logistic regression in R
+{{% /notice %}}</p>
+</div>
 <div id="logistic-regression-model" class="section level2">
 <h2>Logistic Regression Model</h2>
 <p>We will use the generalized linear model function <code>glm()</code> to estimate a logistic regression-remember that we have a dummy dependent variable. The function is very similar to the <code>lm()</code> function- the only difference is that there is an additional argument called <code>family()</code>. The <code>family()</code> function will tell R that we want to estimate a logistic regression.</p>
@@ -42,4 +48,10 @@ summary(logit.model)</code></pre>
 <p>Interpreting the results of a logistic regression model is not the same as the interpretation of the linear model. Remember that for the linear model the coefficient describe the effect of a unit change (increase or decrease) in X on Y.</p>
 <p>For the logistic regression the interpretation of the coefficient is: a one unit change (increase or decrease) in X is associated with a <span class="math inline">\(\hat{\beta}\)</span> change in the log-odds of the dependent variable (Y), holding all other variables constant.</p>
 <p>For example, the coefficient describing perceptions about the economy <code>sociotropic_pros</code> is equal to <span class="math inline">\(0.047\)</span>, implying that the log-odds of voting for the party in government are <span class="math inline">\(0.047\)</span> higher when the respondent believe that the economy is doing well, holding all other variables constant.</p>
+</div>
+<div id="recap" class="section level1">
+<h1>Recap</h1>
+<p>{{% notice info %}}
+* You can develop a generalised linear model in R using <code>glm()</code> function.
+{{% /notice %}}</p>
 </div>

@@ -3,6 +3,15 @@ title: Introduction to regression analysis
 weight: 22
 ---
 
+#### Learning Objectives
+
+By the end of this section you should be able to:
+
+{{% notice info %}}
+* create a regression model in R
+* calculate Pearson's r
+{{% /notice %}}
+
 As always, start by opening a new script file, give to your file a "_good name_" and save it in our folder (POLXXXX). Remove everything from RStudio's memory and set your working directory
 
 ```{r directory, eval=FALSE, message=FALSE, include=FALSE, paged.print=FALSE}
@@ -92,5 +101,11 @@ summary(model.1)
 **Note:** To disable scientific notation in R, in other words to display regular numbers instead of using the e+10-like notation, run the function below to disable it. 
 `options(scipen = 999)`
 
+# Recap
+
+{{% notice info %}}
+* You can build a linear regression model in R using the `lm()` function in base R. 
+* The `cor()` function can be used to calculate Pearson's r.
+{{% /notice %}}
 
 

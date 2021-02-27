@@ -3,9 +3,15 @@ title: Create your dependent variable
 weight: 30
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
+<div id="learning-objectives" class="section level2">
+<h2>Learning Objectives</h2>
+<p>By the end of this section you should be able to:</p>
+<p>{{% notice info %}}
+* Develop a dummy variable using the R package ‘dplyr’.
+{{% /notice %}}</p>
+</div>
 <div id="create-the-dependent-variable" class="section level2">
 <h2>Create the dependent variable</h2>
 <p>Our dependent variable is a dichotomous, dummy variable where <span class="math inline">\(1\)</span> means that the respondent voted for the party in government - this is what we are trying to explain- and <span class="math inline">\(0\)</span> means that they voted for another party.</p>
@@ -19,4 +25,10 @@ weight: 30
 <pre><code>## 
 ##   0   1 
 ## 595 347</code></pre>
+</div>
+<div id="recap" class="section level1">
+<h1>Recap</h1>
+<p>{{% notice info %}}
+* You can develop your own variables or dummy variables using the <code>mutate()</code> function in the <code>dplyr</code>.
+{{% /notice %}}</p>
 </div>

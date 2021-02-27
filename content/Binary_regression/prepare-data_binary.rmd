@@ -3,6 +3,13 @@ title: Prepare your dataset
 weight: 29
 ---
 
+#### Learning Objectives
+
+By the end of this section you should be able to:
+
+{{% notice info %}}
+* use the `dplyr` package to clean and recode your dataset.
+{{% /notice %}}
 
 For this section we will be using data from the 'British Election Study' survey to investigate the effect of perceptions about the economy on party choice. This is part of a broader research examining the effect of political issues on party choice and especialy on the effect of the economy on the party in government. 
 
@@ -63,3 +70,8 @@ eco_voting<-eco_voting %>% rename(left_right=e01, egocentric_retro=l01,egocentri
 View(eco_voting)
 ```
 
+# Recap
+
+{{% notice info %}}
+* The dplyr package offers a number of functions to clean and reshape your dataset including; `rename()` and `select()`.
+{{% /notice %}}

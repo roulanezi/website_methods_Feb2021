@@ -17,6 +17,14 @@ logit.model<-glm(incumbent~ sociotropic_pros+egocentric_retro+left_right, data=e
 summary(logit.model)
 ```
 
+#### Learning Objectives
+
+By the end of this section you should be able to:
+
+{{% notice info %}}
+* use the effects package to visualise predicted probabilities.
+{{% /notice %}}
+
 ## Predicted probabilities
 
 As you may have already realised, log-odds are not straight-forward. This is why we use the `predict()` function which give us predictions for Y, the dependent variable. 
@@ -41,4 +49,8 @@ plot(allEffects(logit.model))
 
 Fox, J. (2003) Effect displays in R for generalised linear models. Journal of Statistical Software 8:15, 1–27, http://www.jstatsoft.org/v08/i15/.
 
+# Recap
 
+{{% notice info %}}
+* You can use the `allEffects()` function as well as `plot()` function to display logistic regression model data
+{{% /notice %}}

@@ -13,6 +13,13 @@ eco_voting[eco_voting <=-1] <- NA
 eco_voting[eco_voting <=-2] <- NA
 ```
 
+## Learning Objectives
+
+By the end of this section you should be able to:
+
+{{% notice info %}}
+* Develop a dummy variable using the R package 'dplyr'.
+{{% /notice %}}
 
 ## Create the dependent variable
 
@@ -28,4 +35,11 @@ You may use the `table()` function to double check the new variable entitled `in
 table(eco_voting$b02)
 table(eco_voting$incumbent)
 ```
+
+
+# Recap
+
+{{% notice info %}}
+* You can develop your own variables or dummy variables using the `mutate()` function in the `dplyr`.
+{{% /notice %}}
 

@@ -5,6 +5,13 @@ title: Correlation
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
+<div id="learning-objectives" class="section level4">
+<h4>Learning Objectives</h4>
+<p>By the end of this section you should be able to:</p>
+<p>{{% notice info %}}
+* Measure correlations between variables in R.
+* Visualise relationships using the correlogram package.
+{{% /notice %}}</p>
 <p>If we want to examine the relationship between two continuous variables then calculate the correlation coefficient commonly known as Pearson’s r. The correlation coefficient ranges from <span class="math inline">\(-1\)</span> to <span class="math inline">\(1\)</span> where <span class="math inline">\(-1\)</span> indicates a perfect negative relationship between the two variables and <span class="math inline">\(1\)</span> a perfect positive relationship.
 We calculate the correlation coefficient by using the <code>cor()</code> function.</p>
 <p>For example, load the <code>EVS_UK</code> dataset. We will examine the relationship between peoples’ attitudes towards EU (v198) and attitudes towards immigration (v185). The interpretation of the results depends upon the direction of the values. In our case our two continuous variables range from <span class="math inline">\(0\)</span> to <span class="math inline">\(10\)</span>, for v198 <span class="math inline">\(0\)</span> means that the responder is against the enlargement of the EU and 10 in favour. For v185, <span class="math inline">\(0\)</span> means that the responder believe that immigrants do not take away jobs while <span class="math inline">\(10\)</span> means that they do take jobs away.</p>
@@ -18,19 +25,7 @@ cor(y=EVS_UK$v198, x=EVS_UK$v185, use=&quot;complete.obs&quot;)</code></pre>
 <pre class="r"><code>evs_subset &lt;- c(&quot;v198&quot;, &quot;v184&quot;, &quot;v185&quot;, &quot;v186&quot;, &quot;v187&quot;)
 euimmi.sample &lt;- EVS_UK[evs_subset]
 View(euimmi.sample)</code></pre>
-<p>let’s confirm that all of our variables are numeric i.e. continuous</p>
-<pre class="r"><code>class(EVS_UK$v198)</code></pre>
-<pre><code>## [1] &quot;haven_labelled&quot;</code></pre>
-<pre class="r"><code>class(EVS_UK$v185)</code></pre>
-<pre><code>## [1] &quot;haven_labelled&quot;</code></pre>
-<pre class="r"><code>class(EVS_UK$v186)</code></pre>
-<pre><code>## [1] &quot;haven_labelled&quot;</code></pre>
-<pre class="r"><code>class(EVS_UK$v187)</code></pre>
-<pre><code>## [1] &quot;haven_labelled&quot;</code></pre>
-<pre class="r"><code>EVS_UK$v198&lt;-as.numeric(EVS_UK$v198)
-EVS_UK$v185&lt;-as.numeric(EVS_UK$v185)
-EVS_UK$v186&lt;-as.numeric(EVS_UK$v186)
-EVS_UK$v187&lt;-as.numeric(EVS_UK$v187)</code></pre>
+</div>
 <div id="visualising-correlations" class="section level3">
 <h3>Visualising correlations</h3>
 <p>Don’t forget to install the package we will use by using the <code>install.packages()</code> function:
@@ -39,5 +34,12 @@ EVS_UK$v187&lt;-as.numeric(EVS_UK$v187)</code></pre>
 corrgram(euimmi.sample, order=NULL, lower.panel=panel.shade,
   upper.panel=NULL, text.panel=panel.txt,
   main=&quot;EU enlargement and attitudes \n towards immigration&quot;)</code></pre>
-<p><img src="/Bivariate/correlation_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="/Bivariate/correlation_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+<div id="recap" class="section level1">
+<h1>Recap</h1>
+<p>{{% notice info %}}
+* You can measure the correlation between two variables using the <code>cor()</code> function
+* If you can visualise your correlation you can use the <code>corrgram</code> package
+{{% /notice %}}</p>
 </div>

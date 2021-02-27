@@ -3,6 +3,14 @@ title: Interpreting the regression output
 weight: 23
 ---
 
+#### Learning Objectives
+
+By the end of this section you should be able to:
+
+{{% notice info %}}
+* Interpret the output of your linear regression model in R.
+* Identify the values of a given linear model's residuals, coefficients and intercept in R.
+{{% /notice %}}
 
 Let's start by having a look at the formula: 
 
